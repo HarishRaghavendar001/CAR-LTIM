@@ -1,1 +1,23 @@
-//todo: complete missing code.
+//todo: complete missing code.<div class="car-container">
+  <form [formGroup]="itemForm">
+    <label for="start">Rental Start Date:</label>
+    <input id="start" type="datetime-local" formControlName="rentalStartDate" />
+ 
+    <label for="end">Rental End Date:</label>
+    <input id="end" type="datetime-local" formControlName="rentalEndDate" />
+ 
+    <div *ngIf="!itemForm.valid" class="error">
+      Please fill in both dates.
+    </div>
+  </form>
+ 
+  <div class="car-list">
+ 
+<div *ngFor="let car of availableCars" class="car-card">
+      <h3>{{ car.name }}</h3>
+      <p>{{ car.description }}</p>
+      <button (click)="bookCar(car.id)">Book</button>
+    </div>
+  </div>
+</div>
+ 

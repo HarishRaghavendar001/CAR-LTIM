@@ -1,1 +1,64 @@
-//todo: complete missing code.
+<!-- <div class="container">
+  <h2>Booking Payment</h2>
+ 
+  <form [formGroup]="itemForm" (ngSubmit)="submitPayment()">
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input id="amount" type="number" formControlName="amount" class="form-control" />
+      <div *ngIf="itemForm.get('amount')?.invalid && itemForm.get('amount')?.touched" class="text-danger">
+        Amount is required.
+      </div>
+    </div>
+ 
+    <div class="form-group">
+ 
+      <label for="paymentDate">Payment Date</label>
+      <input id="paymentDate" type="date" formControlName="paymentDate" class="form-control" />
+      <div *ngIf="itemForm.get('paymentDate')?.invalid && itemForm.get('paymentDate')?.touched" class="text-danger">
+ 
+Payment date is required.
+      </div>
+    </div>
+ 
+    <div class="form-group">
+      <label for="paymentMethod">Payment Method</label>
+      <input id="paymentMethod" type="text" formControlName="paymentMethod" class="form-control" />
+      <div *ngIf="itemForm.get('paymentMethod')?.invalid && itemForm.get('paymentMethod')?.touched" class="text-danger">
+        Payment method is required.
+      </div>
+    </div>
+ 
+    <div class="form-group">
+      <label for="paymentStatus">Payment Status</label>
+      <select id="paymentStatus" formControlName="paymentStatus" class="form-control">
+        <option value="">Select Status</option>
+        <option value="Pending">Pending</option>
+ 
+<option value="Completed">Completed</option>
+      </select>
+      <div *ngIf="itemForm.get('paymentStatus')?.invalid && itemForm.get('paymentStatus')?.touched" class="text-danger">
+        Payment status is required.
+      </div>
+    </div>
+ 
+    <button type="submit" class="btn btn-primary" [disabled]="itemForm.invalid">Submit Payment</button>
+  </form>
+ 
+  <hr />
+ 
+  <h3>Bookings</h3>
+ 
+<ul class="list-group">
+    <li *ngFor="let booking of bookings" class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        <strong>ID:</strong> {{ booking.id }}<br />
+        <strong>Status:</strong> {{ booking.status }}
+      </div>
+      <div>
+        <button class="btn btn-success btn-sm" (click)="updateStatus(booking.id, 'Confirmed')">Confirm</button>
+        <button class="btn btn-danger btn-sm" (click)="updateStatus(booking.id, 'Cancelled')">Cancel</button>
+      </div>
+    </li>
+  </ul>
+</div>
+ -->
