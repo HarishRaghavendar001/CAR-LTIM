@@ -10,42 +10,65 @@ import { HttpService } from '../../services/http.service';
   templateUrl: './payment-report.component.html',
   styleUrls: ['./payment-report.component.scss']
 })
-export class PaymentReportComponent implements OnInit {
+// <<<<<<< HEAD
+// export class PaymentReportComponent implements OnInit {
+// =======
+export class PaymentReportComponent {}
 
-  formModel:any={status:null};
-  showError:boolean=false;
-  errorMessage:any;
-  carList:any=[];
-  assignModel: any={};
 
-  showMessage: any;
-  responseMessage: any;
-  updateId: any;
-  toBook: any={};
-  bookingList: any=[];
-  constructor(public router:Router, public httpService:HttpService, private formBuilder: FormBuilder, private authService:AuthService,private datePipe: DatePipe) 
-  {
+//   formModel:any={status:null};
+//   showError:boolean=false;
+//   errorMessage:any;
+//   carList:any=[];
+//   assignModel: any={};
+
+//   showMessage: any;
+//   responseMessage: any;
+//   updateId: any;
+//   toBook: any={};
+//   bookingList: any=[];
+//   constructor(public router:Router, public httpService:HttpService, private formBuilder: FormBuilder, private authService:AuthService,private datePipe: DatePipe) 
+//   {
       
-  }
-  ngOnInit(): void {
+//   }
+// // <<<<<<< HEAD
+//   ngOnInit(): void {
 
-    this.getPaymentReport();
-  }
-  getPaymentReport() {
-    this.bookingList=[];
-    this.httpService.paymentReport().subscribe((data: any) => {
-      this.bookingList=data;
-      console.log(this.bookingList);
-    }, error => {
-      // Handle error
-      this.showError = true;
-      this.errorMessage = "An error occurred.. Please try again later.";
-      console.error('Login error:', error);
-    });;
-  }
+//     this.getPaymentReport();
+//   }
+//   getPaymentReport() {
+//     this.bookingList=[];
+//     this.httpService.paymentReport().subscribe((data: any) => {
+//       this.bookingList=data;
+//       console.log(this.bookingList);
+//     }, error => {
+//       // Handle error
+//       this.showError = true;
+//       this.errorMessage = "An error occurred.. Please try again later.";
+//       console.error('Login error:', error);
+//     });;
+//   }
+// // =======
+//   // ngOnInit(): void {
+
+//   //   this.getPaymentReport();
+//   // }
+//   // getPaymentReport() {
+//   //   this.bookingList=[];
+//   //   this.httpService.paymentReport().subscribe((data: any) => {
+//   //     this.bookingList=data;
+//   //     console.log(this.bookingList);
+//   //   }, error => {
+//   //     // Handle error
+//   //     this.showError = true;
+//   //     this.errorMessage = "An error occurred.. Please try again later.";
+//   //     console.error('Login error:', error);
+//   //   });;
+//   // }
+
 
  
  
   
-}
+// }
 

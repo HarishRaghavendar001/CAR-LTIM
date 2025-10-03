@@ -1,3 +1,4 @@
+
 package com.wecp.car_rental_management_system.config;
 
 import org.springframework.context.annotation.Bean;

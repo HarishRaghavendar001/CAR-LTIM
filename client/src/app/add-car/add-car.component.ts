@@ -9,4 +9,7 @@ import { HttpService } from '../../services/http.service';
   templateUrl: './add-car.component.html',
   styleUrls: ['./add-car.component.scss']
 })
-export class AddCarComponent //todo: complete missing code.
+
+
+export class AddCarComponent {}
+
