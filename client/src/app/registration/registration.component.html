@@ -1,1 +1,45 @@
-//todo: complete missing code.
+<div class="registration-container">
+  <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" />
+      <div *ngIf="itemForm.get('email')?.invalid && itemForm.get('email')?.touched">
+        <small *ngIf="itemForm.get('email')?.errors?.['required']">Email is required.</small>
+        <small *ngIf="itemForm.get('email')?.errors?.['email']">Invalid email format.</small>
+      </div>
+    </div>
+ 
+    <div>
+      <label for="username">Username</label>
+      <input id="username" formControlName="username" type="text" />
+      <div *ngIf="itemForm.get('username')?.invalid && itemForm.get('username')?.touched">
+ 
+ 
+  Username is required.
+      </div>
+    </div>
+ 
+    <div>
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" />
+      <div *ngIf="itemForm.get('password')?.invalid && itemForm.get('password')?.touched">
+        Password is required.
+      </div>
+    </div>
+ 
+    <div>
+      <label for="role">Role</label>
+      <select id="role" formControlName="role">
+ 
+<option value="" disabled>Select role</option>
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+      <div *ngIf="itemForm.get('role')?.invalid && itemForm.get('role')?.touched">
+        Role is required.
+      </div>
+    </div>
+ 
+    <button type="submit" [disabled]="itemForm.invalid">Register</button>
+  </form>
+</div>
