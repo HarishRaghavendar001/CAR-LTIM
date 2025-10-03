@@ -5,28 +5,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
-
-// @Table(name = "car_categories") // do not change this line i.e table name
-// public class CarCategory {
-//     // implement entity
-// }
-
-
 @Entity
 @Table(name = "car_categories") // do not change this line i.e table name
 public class CarCategory {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
     private String description;
     private Double baseRate;
 
-    @OneToMany(mappedBy = "category")
-    @JsonIgnore
+    @OneToMany(mappedBy = "category", cascade=CascadeType.ALL)
     private List<Car> cars;
+
+    public CarCategory() {
+    }
 
     public CarCategory(Long id, String name, String description, Double baseRate, List<Car> cars) {
         this.id = id;
@@ -76,5 +69,5 @@ public class CarCategory {
         this.cars = cars;
     }
 
-    // Getters and Setters
+    
 }

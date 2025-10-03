@@ -6,32 +6,44 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-
-
-// public class CarCategoryService {
-//     // implement car category service
-// }
-
 
 @Service
 public class CarCategoryService {
+    // implement car category service
     @Autowired
     private CarCategoryRepository carCategoryRepository;
 
+    // Add a new car category
+    public CarCategory addCarCategory(CarCategory carCategory) {
+        return carCategoryRepository.save(carCategory);
+    }
+
+    // Get all car categories
     public List<CarCategory> getAllCarCategories() {
         return carCategoryRepository.findAll();
     }
 
-    public CarCategory createCarCategory(CarCategory carCategory) {
-        return carCategoryRepository.save(carCategory);
+    // Get a car category by ID
+    public CarCategory getCarCategoryById(Long id) {
+        return carCategoryRepository.findById(id).orElse(null);
     }
 
-    public CarCategory updateCarCategory(Long categoryId, CarCategory updatedCategory) {
-        CarCategory category = carCategoryRepository.findById(categoryId).orElseThrow();
-        category.setName(updatedCategory.getName());
-        category.setDescription(updatedCategory.getDescription());
-        category.setBaseRate(updatedCategory.getBaseRate());
-        return carCategoryRepository.save(category);
+    // Update a car category
+    public CarCategory updateCarCategory(Long id, CarCategory updatedCarCategory) {
+        CarCategory existingCarCategory = carCategoryRepository.findById(id).orElse(null);
+        if (existingCarCategory != null) {
+            existingCarCategory.setName(updatedCarCategory.getName());
+            existingCarCategory.setDescription(updatedCarCategory.getDescription());
+            existingCarCategory.setBaseRate(updatedCarCategory.getBaseRate());
+            return carCategoryRepository.save(existingCarCategory);
+        }
+        return null;
+    }
+
+    // Delete a car category
+    public void deleteCarCategory(Long id) {
+        carCategoryRepository.deleteById(id);
     }
 }
+
+

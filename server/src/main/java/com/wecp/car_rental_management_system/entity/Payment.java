@@ -1,89 +1,84 @@
+
 package com.wecp.car_rental_management_system.entity;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
-// @Table(name = "payments") // do not change this line i.e table name
-// public class Payment {
-//     // implement entity
-// }
 
 @Entity
 @Table(name = "payments") // do not change this line i.e table name
 public class Payment {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    Double amount;
 
-    private Double amount;
+    // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    // @Temporal(TemporalType.TIMESTAMP)
+    Date paymentDate;
+    String paymentMethod;
+    String paymentStatus;
 
-    @Temporal(TemporalType.DATE)
-    private Date date;
+    @OneToOne(mappedBy = "payment",cascade = CascadeType.ALL)
+    Booking booking;
 
-    private String method;
-    private String status;
+    public Payment(Long id, Double amount, Date paymentDate, String paymentMethod, String paymentStatus,
+            Booking booking) {
+        this.id = id;
+        this.amount = amount;
+        this.paymentDate = paymentDate;
+        this.paymentMethod = paymentMethod;
+        this.paymentStatus = paymentStatus;
+        this.booking = booking;
+    }
 
-    @OneToOne
-    @JoinColumn(name = "booking_id")
-    private Booking booking;
+    public Payment() {
+    }
 
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
     public Double getAmount() {
         return amount;
     }
-
     public void setAmount(Double amount) {
         this.amount = amount;
     }
-
-    public Date getDate() {
-        return date;
+    public Date getPaymentDate() {
+        return paymentDate;
     }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public void setPaymentDate(Date paymentDate) {
+        this.paymentDate = paymentDate;
     }
-
-    public String getMethod() {
-        return method;
+    public String getPaymentMethod() {
+        return paymentMethod;
     }
-
-    public void setMethod(String method) {
-        this.method = method;
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
-
-    public String getStatus() {
-        return status;
+    public String getPaymentStatus() {
+        return paymentStatus;
     }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
     }
-
     public Booking getBooking() {
         return booking;
     }
-
     public void setBooking(Booking booking) {
         this.booking = booking;
     }
 
-    public Payment(Long id, Double amount, Date date, String method, String status, Booking booking) {
-        this.id = id;
-        this.amount = amount;
-        this.date = date;
-        this.method = method;
-        this.status = status;
-        this.booking = booking;
-    }
 
-    // Getters and Setters
+    
+
+
+    
 }
+

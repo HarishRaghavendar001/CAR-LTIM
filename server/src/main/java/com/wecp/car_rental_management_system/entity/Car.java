@@ -5,47 +5,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.List;
 
-
-// @Table(name = "cars") // do not change this line i.e table name
-// public class Car {
-//     // implement entity
-// }
-
 @Entity
 @Table(name = "cars") // do not change this line i.e table name
 public class Car {
-
+    // implement entity
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String make;
     private String model;
-    private int year;
+    private String manufactureYear;
     private String registrationNumber;
     private String status;
-    private Double rate;
+    private Double rentalRatePerDay;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
     private CarCategory category;
 
-    @OneToMany(mappedBy = "car")
-    @JsonIgnore
+    @OneToMany(mappedBy = "car",cascade = CascadeType.ALL)
     private List<Booking> bookings;
-
-    public Car(Long id, String make, String model, int year, String registrationNumber, String status, Double rate,
-            CarCategory category, List<Booking> bookings) {
-        this.id = id;
-        this.make = make;
-        this.model = model;
-        this.year = year;
-        this.registrationNumber = registrationNumber;
-        this.status = status;
-        this.rate = rate;
-        this.category = category;
-        this.bookings = bookings;
-    }
 
     public Long getId() {
         return id;
@@ -71,12 +49,12 @@ public class Car {
         this.model = model;
     }
 
-    public int getYear() {
-        return year;
+    public String getManufactureYear() {
+        return manufactureYear;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setManufactureYear(String manufactureYear) {
+        this.manufactureYear = manufactureYear;
     }
 
     public String getRegistrationNumber() {
@@ -95,12 +73,12 @@ public class Car {
         this.status = status;
     }
 
-    public Double getRate() {
-        return rate;
+    public Double getRentalRatePerDay() {
+        return rentalRatePerDay;
     }
 
-    public void setRate(Double rate) {
-        this.rate = rate;
+    public void setRentalRatePerDay(Double rentalRatePerDay) {
+        this.rentalRatePerDay = rentalRatePerDay;
     }
 
     public CarCategory getCategory() {
@@ -119,5 +97,24 @@ public class Car {
         this.bookings = bookings;
     }
 
-    // Getters and Setters
+    public Car(Long id, String make, String model, String manufactureYear, String registrationNumber, String status,
+            Double rentalRatePerDay, CarCategory category, List<Booking> bookings) {
+        this.id = id;
+        this.make = make;
+        this.model = model;
+        this.manufactureYear = manufactureYear;
+        this.registrationNumber = registrationNumber;
+        this.status = status;
+        this.rentalRatePerDay = rentalRatePerDay;
+        this.category = category;
+        this.bookings = bookings;
+    }
+
+    public Car() {
+    }
+
+  
+
+
 }
+
