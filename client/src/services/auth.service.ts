@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -19,7 +20,7 @@ export class AuthService {
     localStorage.setItem('token', token);
   }
 
-   SetRole(role:any)
+   setRole(role:any)
   {
     localStorage.setItem('role',role);
   }
@@ -41,11 +42,16 @@ export class AuthService {
   logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('role');
+    localStorage.removeItem('userId');
      this.token=null;
      this.isLoggedIn=false
    }
    saveUserId(userid: string) {
   
     localStorage.setItem('userId',userid);
+  }
+
+  getUserId(): number {
+    return Number(localStorage.getItem('userId')) || 0;
   }
 }

@@ -1,0 +1,257 @@
+
+.navbar-brand {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+.ride {
+  color: white;
+  margin-right: 5px;
+}
+
+.on {
+  background-color: #101010ed;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+body {
+  // background: url('/home/ubuntu/root/client/src/assets/CAR.jpg') no-repeat center center fixed;
+  // background-image: ./assets/;
+
+  background-size: cover;
+  color: white;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-container {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  overflow-y: auto; /* Allow scrolling within the container */
+}
+
+.navbar {
+  background-color: #2c3e5000;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.custom-btn {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #08131f00; /* Button background color */
+  color: white; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none; /* Remove underline */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.custom-btn:hover {
+  background-color: #7e7f80; /* Darker shade for hover effect */
+}
+
+.dashboard-content {
+  padding: 2rem;
+}
+
+.dashboard-title {
+  text-align: center;
+  color: #000;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.dashboard-card {
+  background: #000;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgb(0, 0, 0);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  background-color: #080d1226;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px 10px 0 0;
+  font-weight: 500;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table-dark {
+  background-color: #343a40;
+  color: white;
+}
+
+.table-dark th, .table-dark td {
+  border-color: #454d55;
+}
+
+.table-wide {
+  width: 100%;
+}
+
+.alert {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.alert-success {
+  background-color: #28a74600;
+  color: rgb(153, 233, 183); //perfect
+}
+
+.alert-danger {
+  background-color: #e6a7ad00;
+  color: rgb(255, 0, 0);
+}
+
+.form-label, 
+.form-control {
+  color: white; /* Set text color to white */
+}
+
+.form-control {
+  background-color: transparent; /* Make input background transparent */
+  border: 1px solid white; /* Add a white border */
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Placeholder text color */
+}
+
+select.form-control {
+  background-color: transparent; /* Make select background transparent */
+  color: white; /* Set text color to white */
+}
+
+select.form-control option {
+  background-color: #343a40; /* Dark background for options */
+  color: white; /* Set text color to white */
+}
+
+.text-danger {
+  color: #ff4d4d; /* Keep error messages in red for visibility */
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0); /* Slightly transparent background */
+  color: white; /* White text color */
+  text-align: center;
+  padding: 0px;
+  font-size: 0.6em !important; /* Small font size */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .dashboard-content {
+    padding: 1rem;
+  }
+
+  .col-md-8 {
+    width: 95%;
+  }
+}
+
+
+.transparent-table {
+  color: white; /* Ensure text is white */
+}
+
+.transparent-table tbody {
+  background-color: rgba(70, 14, 14, 0); /* Ensure tbody is completely transparent */
+}
+
+.transparent-table tbody tr {
+  background-color: rgba(0, 0, 0, 0); /* Ensure tbody rows are completely transparent */
+}
+
+.transparent-table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.441); /* Ensure hover effect is also transparent */
+}
+
+.transparent-table thead {
+  color: #81ece2; /* Change this to your desired color */
+}
+
+.transparent-table th, .transparent-table td {
+  padding: 10px; /* Add padding to table cells */
+  text-align: left; /* Align text to the left */
+}
+
+.transparent-table th {
+  background-color: rgba(0, 0, 0, 0.1); /* Slightly transparent background for headers */
+}
+
+.transparent-table td {
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background for cells */
+}
+
+.transparent-table th, .transparent-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Add a border to separate rows */
+}
+
+.table-wide {
+  width: 100%; /* Ensure the table takes up the full width */
+}
+
+.table-wide th, .table-wide td {
+  padding: 10px; /* Add padding to table cells */
+  text-align: left; /* Align text to the left */
+}
+
+.table-wide th {
+  background-color: rgba(0, 0, 0, 0.1); /* Slightly transparent background for headers */
+}
+
+.table-wide td {
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background for cells */
+}
+
+.table-wide th, .table-wide td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Add a border to separate rows */
+}
+
+.form-control {
+  background-color: transparent; /* Make the background transparent */
+  color: white; /* Set the text color to white */
+  border: 1px solid white; /* Add a white border */
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Make the placeholder text semi-transparent white */
+}
