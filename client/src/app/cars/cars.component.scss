@@ -1,0 +1,192 @@
+
+body {
+  // background: url('../../assets/pexels-pixabay-164634.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+.cars-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.009); /* Dark overlay */
+  border-radius: 10px;
+  color: white; /* Ensure all text is white */
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+}
+
+.search-card {
+  margin-bottom: 2rem;
+}
+
+.card-body {
+  background: rgba(255, 255, 255, 0.158);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.search-form .row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  margin: 0.5rem;
+}
+
+.form-label, 
+.form-control {
+  color: white; /* Set text color to white */
+}
+
+.form-control {
+  background-color: transparent; /* Make input background transparent */
+  border: 1px solid white; /* Add a white border */
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Placeholder text color */
+}
+
+select.form-control {
+  background-color: transparent; /* Make select background transparent */
+  color: white; /* Set text color to white */
+}
+
+select.form-control option {
+  background-color: #343a40; /* Dark background for options */
+  color: white; /* Set text color to white */
+}
+
+.cars-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.car-card {
+  background: #000;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgb(0, 0, 0);
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  flex: 1 1 calc(33.333% - 1rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white; /* Ensure all text is white */
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+}
+
+.car-image-wrapper img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.car-details {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.car-title {
+  font-size: 1.2rem;
+}
+
+.car-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.car-info p {
+  margin: 0;
+}
+
+.status-message {
+  margin-top: 0.5rem;
+}
+
+.available {
+  color: #28a745; /* Green color for available status */
+}
+
+.booked {
+  color: #dc3545; /* Red color for booked status */
+}
+
+.pending {
+  color: #ffc107; /* Yellow color for pending status */
+}
+
+.btn-disabled {
+  background-color: #6c757d; /* Disabled button background */
+  cursor: not-allowed; /* Disabled button cursor */
+}
+
+.no-cars-message {
+  text-align: center;
+  color: white;
+  margin-top: 2rem;
+}
+
+.no-cars-message i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+// button {
+//   background-color: #08131f00; /* Button background color */
+//   color: white; /* Button text color */
+//   border: none;
+//   border-radius: 5px;
+//   padding: 10px 20px;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease;
+// }
+
+button {
+  background-color: #08131f00; /* Button background color */
+  color: white; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 25px; /* Adjust this value to move the button further down */
+}
+
+button:hover {
+  background-color: #6fb0f2d7; /* Darker shade for hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-form .row {
+    flex-direction: column;
+  }
+
+  .car-card {
+    flex: 1 1 100%;
+  }
+}

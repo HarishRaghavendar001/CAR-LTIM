@@ -1,4 +1,107 @@
-<div class="row text-center">
+<!-- <div class="row text-center">
 <h1 class="text-capitalize">Car Rental Management System
 </h1>
+</div> -->
+
+<body>
+<div class="container-fluid dashboard-container" 
+[ngClass]="{
+  'admin-model':userRole === 'ADMINISTRATOR',
+  'agent-model':userRole === 'AGENT',
+  'customer-model':userRole === 'CUSTOMER'
+}"
+>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <div class="navbar-brand">
+        <span class="ride">Ride</span><span class="on">ON</span>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <ng-container *ngIf="userRole === 'ADMINISTRATOR'">
+            <li class="nav-item">
+              <a class="nav-link custom-btn" [routerLink]="['/category']">
+                <i class="fas fa-plus-circle"></i> Add Car Category
+              </a>
+            </li>
+          </ng-container>
+
+          <ng-container *ngIf="userRole === 'AGENT'">
+            <li class="nav-item">
+              <a class="nav-link custom-btn" [routerLink]="['/add-car']">
+                <i class="fas fa-car"></i> Cars
+              </a>
+            </li>
+          </ng-container>
+
+          <li class="nav-item">
+            <button class="btn custom-btn" (click)="logout()">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="dashboard-content">
+    <h1 class="dashboard-title">
+      <i [class]="getRoleIcon()"></i> {{ userRole }} Dashboard
+    </h1>
+
+    <div class="row justify-content-center">
+      <ng-container *ngIf="userRole === 'ADMINISTRATOR'">
+        <div class="col-md-10 mb-4">
+          <div class="card dashboard-card">
+            <!-- <div class="card-header">
+              <i class="fas fa-chart-line"></i> Booking Reports
+            </div> -->
+            <div class="card-body">
+              <app-booking-report></app-booking-report>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-10">
+          <div class="card dashboard-card">
+            <!-- <div class="card-header">
+              <i class="fas fa-money-bill-wave"></i> Payment Reports
+            </div> -->
+            <!-- <div class="card-body"> -->
+              <app-payment-report></app-payment-report>
+            <!-- </div> -->
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="userRole === 'AGENT'">
+        <div class="col-md-10">
+          <div class="card dashboard-card">
+            <div class="card-body">
+              <app-get-bookings></app-get-bookings>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="userRole === 'CUSTOMER'">
+        <div class="col-md-10">
+          <div class="card dashboard-card">
+            <!-- <div class="card-header">
+              <i class="fas fa-car"></i> Available Cars
+            </div> -->
+            <div class="card-body">
+              <app-cars></app-cars>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
 </div>
+</body>
