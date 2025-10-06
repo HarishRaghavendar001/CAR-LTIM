@@ -13,10 +13,14 @@ import { CarsComponent } from './cars/cars.component';
 import { GetBookingsComponent } from './get-bookings/get-bookings.component';
 import { BookingReportComponent } from './booking-report/booking-report.component';
 import { PaymentReportComponent } from './payment-report/payment-report.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  // { path: '**', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomepageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'dashboard', component: DashbaordComponent },
@@ -29,9 +33,9 @@ const routes: Routes = [
   { path: 'category', component: CategoryComponent }, 
   { path: 'add-car', component: AddCarComponent }, 
  
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  // { path: '', redirectTo: '/home', pathMatch: 'full' },
+  // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 
-  { path: '**', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -39,3 +43,4 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+

@@ -1,1 +1,196 @@
-//todo: complete missing code.
+
+<body>
+  <div class="container-fluid dashboard-container">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <div class="navbar-brand">
+                <span class="ride">CAR</span><span class="on">z</span> <span class="ride">Y</span>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link custom-btn" [routerLink]="['/dashboard']">
+                <i class="fas fa-sign-in-alt"></i> Dashboard
+                
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="dashboard-content">
+      <h2 class="dashboard-title">
+        <i class="fas fa-car-alt"></i> Car Management
+      </h2>
+      
+
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card dashboard-card">
+            <div class="card-header">
+              <i class="fas fa-{{ isEditMode ? 'edit' : 'plus-circle' }}"></i>
+              {{ isEditMode ? 'Update Car' : 'Add Car' }}
+            </div>
+            <div class="card-body">
+              <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                  <label for="make" class="form-label">
+                    <i class="fas fa-industry"></i> Make
+                  </label>
+                  <input type="text" id="make" formControlName="make" class="form-control">
+                  <div *ngIf="itemForm.get('make')?.invalid && (itemForm.get('make')?.touched || itemForm.get('make')?.dirty)" class="text-danger">
+                    <div *ngIf="itemForm.get('make')?.hasError('required')">
+                      <i class="fas fa-exclamation-circle"></i> Maker name is required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="model" class="form-label">
+                    <i class="fas fa-car-side"></i> Model
+                  </label>
+                  <input type="text" id="model" formControlName="model" class="form-control">
+                  <div *ngIf="itemForm.get('model')?.invalid && (itemForm.get('model')?.touched || itemForm.get('model')?.dirty)" class="text-danger">
+                    <div *ngIf="itemForm.get('model')?.hasError('required')">
+                      <i class="fas fa-exclamation-circle"></i> Model name is required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="manufactureYear" class="form-label">
+                    <i class="fas fa-calendar-alt"></i> Manufacture Year
+                  </label>
+                  <input type="text" id="manufactureYear" formControlName="manufactureYear" class="form-control">
+                  <div *ngIf="itemForm.get('manufactureYear')?.invalid && (itemForm.get('manufactureYear')?.touched || itemForm.get('manufactureYear')?.dirty)" class="text-danger">
+                    <div *ngIf="itemForm.get('manufactureYear')?.hasError('required')">
+                      <i class="fas fa-exclamation-circle"></i> Manufacture Year is required
+                    </div>
+                    <div *ngIf="itemForm.get('manufactureYear')?.hasError('pattern')">
+                      <i class="fas fa-exclamation-circle"></i> Invalid Year
+                    </div>
+                  </div>  
+                </div>
+
+                <div class="mb-3">
+                  <label for="registrationNumber" class="form-label">
+                    <i class="fas fa-id-card"></i> Registration Number
+                  </label>
+                  <input type="text" id="registrationNumber" formControlName="registrationNumber" class="form-control">
+                  <div *ngIf="itemForm.get('registrationNumber')?.invalid && (itemForm.get('registrationNumber')?.touched || itemForm.get('registrationNumber')?.dirty)" class="text-danger">
+                    <div *ngIf="itemForm.get('registrationNumber')?.hasError('required')">
+                      <i class="fas fa-exclamation-circle"></i> Registration Number is required
+                    </div>
+                    <div *ngIf="itemForm.get('registrationNumber')?.hasError('pattern')">
+                      <i class="fas fa-exclamation-circle"></i> Invalid Registration Number (E.g- 12BH3456AB, AB12CD3456)
+                    </div>
+                  </div> 
+                </div>
+
+                <div class="mb-3">
+                  <label for="status" class="form-label">
+                    <i class="fas fa-info-circle"></i> Status
+                  </label>
+                  <select id="status" formControlName="status" class="form-control">
+                    <option value="available">Available</option>
+                    <option value="booked">Booked</option>
+                  </select>
+                  <div *ngIf="itemForm.get('status')?.invalid && (itemForm.get('status')?.touched || itemForm.get('status')?.dirty)" class="text-danger">
+                    <div *ngIf="itemForm.get('status')?.hasError('required')">
+                      <i class="fas fa-exclamation-circle"></i> Status is required
+                    </div>
+                  </div> 
+                </div>
+
+                <div class="mb-3">
+                  <label for="rentalRatePerDay" class="form-label">
+                    <i class="fas fa-dollar-sign"></i> Rental Rate Per Day
+                  </label>
+                  <input type="number" id="rentalRatePerDay" formControlName="rentalRatePerDay" class="form-control">
+                  <div *ngIf="itemForm.get('rentalRatePerDay')?.invalid && (itemForm.get('rentalRatePerDay')?.touched || itemForm.get('rentalRatePerDay')?.dirty)" class="text-danger">
+                    <div *ngIf="itemForm.get('rentalRatePerDay')?.hasError('required')">
+                      <i class="fas fa-exclamation-circle"></i> Rental Rate is required
+                    </div>
+                    <div *ngIf="itemForm.get('rentalRatePerDay')?.hasError('pattern')">
+                      <i class="fas fa-exclamation-circle"></i> Invalid Amount
+                    </div>
+                  </div> 
+                </div>
+
+                <div class="mb-3">
+                  <label for="category" class="form-label">
+                    <i class="fas fa-tags"></i> Category
+                  </label>
+                  <select id="category" formControlName="category" class="form-control">
+                    <option *ngFor="let carCat of carCategories" [value]="carCat.id">{{ carCat.name }}</option>
+                  </select>
+                  <div *ngIf="itemForm.get('category')?.invalid && (itemForm.get('category')?.touched || itemForm.get('category')?.dirty)" class="text-danger">
+                    <div *ngIf="itemForm.get('category')?.hasError('required')">
+                      <i class="fas fa-exclamation-circle"></i> Category is required
+                    </div>
+                  </div> 
+                </div>
+
+                <button type="submit" class="btn custom-btn">
+                  <i class="fas fa-{{ isEditMode ? 'save' : 'plus' }}"></i>
+                  {{ isEditMode ? 'Update Car' : 'Add Car' }}
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div *ngIf="showError" class="alert alert-danger">
+            <i class="fas fa-exclamation-triangle"></i> {{ errorMessage }}
+          </div>
+          <div *ngIf="showMessage" class="alert alert-success">
+            <i class="fas fa-check-circle"></i> {{ responseMessage }}
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card dashboard-card">
+            <div class="card-header">
+              <i class="fas fa-list"></i> Car List
+            </div>
+                <table class="transparent-table">
+                  <thead>
+                    <tr>
+                      <th>Make</th>
+                      <th>Model</th>
+                      <th>Year</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let car of cars">
+                      <td>{{ car.make }}</td>
+                      <td>{{ car.model }}</td>
+                      <td>{{ car.manufactureYear }}</td>
+                      <td>
+                        <span [class.available]="car.status === 'available'">
+                          {{ car.status }}
+                        </span>
+                      </td>
+                      <td>
+                        <button class="btn custom-btn" (click)="editCar(car)">
+                          <i class="fas fa-edit">Update</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</body>

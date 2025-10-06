@@ -1,0 +1,52 @@
+
+
+<!--
+  Put your video file(s) in src/assets/
+  Example file names used below:
+    - assets/car-loop.mp4
+    - assets/car-loop.webm (optional)
+    - assets/car-poster.jpg (fallback image)
+-->
+ 
+<section class="hero-video" role="region" aria-label="Hero - rental car">
+  <!-- Background video -->
+  <video #bgVideo
+         class="hero-video__media"
+         autoplay muted loop playsinline
+         poster="{{ poster }}"
+         preload="metadata"
+         aria-hidden="true">
+    <!-- Provide WebM first for better compression/support, then MP4 fallback -->
+    <source src="assets/home-video.webm" type="video/webm" />
+    <source src="assets/home-video.mp4" type="video/mp4" />
+
+    <img src="assets/CAR.jpg">
+    <!-- Provide a background image fallback in case video is unsupported -->
+  </video>
+ 
+  <!-- Overlay gradient to increase text contrast -->
+  <div class="hero-video__overlay"></div>
+ 
+  <!-- Content - centered -->
+  <div class="hero-video__content">
+    <h1 class="hero-video__title">
+      Looking to save more on your rental car?
+    </h1>
+ 
+    <p class="hero-video__subtitle">
+      Whether you're planning a weekend getaway, a business trip, or just need a reliable ride, we offer a wide range of vehicles to suit your needs.
+    </p>
+ 
+    <div class="hero-video__controls">
+      <!-- Primary CTA only (no Learn More) -->
+      <button class="btn btn--primary" type="button" (click)="navigateToLogin()">
+        
+        <!-- <a routerLink="/login"> -->
+          Drive on CARzY
+       <!-- </a> -->
+        <!-- <span class="visually-hidden"> — opens booking</span> -->
+      </button>
+    </div>
+  </div>
+ 
+</section>

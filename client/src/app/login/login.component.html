@@ -1,1 +1,205 @@
-//todo: complete missing code.
+
+
+
+
+
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <span class="ride">CAR</span><span class="on">z</span><span class="ride">Y</span>
+    </div>
+    <div class="navbar-links">
+      <button class="login-button" (click)="navigateToHome()">Home</button>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <!-- Left Side: Intro -->
+    <div class="intro-section">
+      <h1>Welcome to <span class="brand-highlight">CARzY Rentals</span></h1>
+      <p class="subtitle">Drive your dreams with ease – Affordable, Reliable, and Fast Car Rentals!</p>
+      <!-- assets/car-illustration.png -->
+    </div>
+
+    <!-- Right Side: Login -->
+    <div class="login-container animate__animated animate__fadeIn">
+      <div class="content-wrapper">
+        <div class="login-card">
+          <div class="card-header">
+            <i class="fas fa-user-circle"></i> Login
+          </div>
+          <div class="card-body">
+            <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" class="login-form">
+              <!-- Username -->
+              <div class="form-group">
+                <label for="username"><i class="fas fa-user"></i> Username</label>
+                <input id="username" formControlName="username" type="text" class="form-control" placeholder="Enter your username" />
+                <div class="error-message" *ngIf="itemForm.get('username')?.invalid && itemForm.get('username')?.touched">
+                  <i class="fas fa-exclamation-circle"></i> Username is required
+                </div>
+              </div>
+
+              <!-- Password -->
+              <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Password</label>
+                <input id="password" formControlName="password" type="password" class="form-control" placeholder="Enter your password" />
+                <div class="error-message" *ngIf="itemForm.get('password')?.invalid && itemForm.get('password')?.touched">
+                  <i class="fas fa-exclamation-circle"></i> Password is required
+                </div>
+              </div>
+
+              <!-- CAPTCHA -->
+              <div class="form-group">
+                <label for="captcha"><i class="fas fa-robot"></i> Solve: {{ captchaQuestion }}</label>
+                <input id="captcha" formControlName="captcha" type="text" class="form-control" placeholder="Enter your answer" />
+                <div class="error-message" *ngIf="itemForm.get('captcha')?.invalid && itemForm.get('captcha')?.touched">
+                  <i class="fas fa-exclamation-circle"></i> Captcha is required
+                </div>
+                <div class="error-message" *ngIf="captchaError">
+                  <i class="fas fa-exclamation-triangle"></i> Incorrect captcha answer
+                </div>
+              </div>
+
+              <!-- Error Message -->
+              <div class="error-alert" *ngIf="errorMessage">
+                <i class="fas fa-exclamation-triangle"></i> {{ errorMessage }}
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-login" [disabled]="itemForm.invalid">
+                <i class="fas fa-sign-in-alt"></i> Login
+              </button>
+
+              <!-- Register Link -->
+              <div class="register-link">
+                Don't have an account?
+                <a routerLink="/registration" class="btn-register">Register</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <footer class="footer">
+    <p>© 2025 CARzY Rentals. All rights reserved.</p>
+  </footer> -->
+</body>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+<body>   
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <span class="ride">CAR</span><span class="on">z</span><span class="ride">Y</span>
+    </div>
+    <div class="navbar-links">
+      <button class="login-button" (click)="navigateToHome()">Home</button>
+    </div>
+  </nav>
+
+  <div class="login-container animate__animated animate__fadeIn">
+    <div class="content-wrapper">
+      <div class="login-card">
+        <div class="card-header">
+          <i class="fas fa-user-circle"></i> Login
+        </div>
+        <div class="card-body">
+          <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" class="login-form">
+
+     
+            <div class="form-group">
+              <label for="username">
+                <i class="fas fa-user"></i> Username
+              </label>
+              <input 
+                id="username" 
+                formControlName="username" 
+                type="text" 
+                class="form-control"
+                placeholder="Enter your username"
+              />
+              <div class="error-message" *ngIf="itemForm.get('username')?.invalid && itemForm.get('username')?.touched">
+                <i class="fas fa-exclamation-circle"></i> Username is required
+              </div>
+            </div>
+
+         
+            <div class="form-group">
+              <label for="password">
+                <i class="fas fa-lock"></i> Password
+              </label>
+              <input 
+                id="password" 
+                formControlName="password" 
+                type="password" 
+                class="form-control"
+                placeholder="Enter your password"
+              />
+              <div class="error-message" *ngIf="itemForm.get('password')?.invalid && itemForm.get('password')?.touched">
+                <i class="fas fa-exclamation-circle"></i> Password is required
+              </div>
+            </div>
+
+   
+            <div class="form-group">
+              <label for="captcha">
+                <i class="fas fa-robot"></i> Solve: {{ captchaQuestion }}
+              </label>
+              <input 
+                id="captcha" 
+                formControlName="captcha" 
+                type="text" 
+                class="form-control" 
+                placeholder="Enter your answer"
+              />
+              <div class="error-message" *ngIf="itemForm.get('captcha')?.invalid && itemForm.get('captcha')?.touched">
+                <i class="fas fa-exclamation-circle"></i> Captcha is required
+              </div>
+              <div class="error-message" *ngIf="captchaError">
+                <i class="fas fa-exclamation-triangle"></i> Incorrect captcha answer
+              </div>
+            </div>
+
+   
+            <div class="error-alert" *ngIf="errorMessage">
+              <i class="fas fa-exclamation-triangle"></i> {{ errorMessage }}
+            </div>
+
+      
+            <button type="submit" class="btn btn-login" [disabled]="itemForm.invalid">
+              <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+
+     
+            <div class="register-link">
+              Don't have an account?    
+              <a routerLink="/registration" class="btn-register">
+                Register
+              </a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 CARzY Rentals. All rights reserved.</p>
+  </footer>
+</body>
+
+
+ -->

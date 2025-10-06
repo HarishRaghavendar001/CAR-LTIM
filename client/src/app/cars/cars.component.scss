@@ -1,0 +1,251 @@
+/* ========================== */
+/* ===== Cars Container ====== */
+/* ========================== */
+.cars-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ===== Section Title ===== */
+.header-section .section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ===== Search Card ===== */
+.search-card {
+  background: rgba(255,255,255,0.85); /* glassy white */
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+}
+
+// .search-form {
+//   display: flex;
+//   gap: 15px;
+//   width: 100%;
+//   flex-wrap: wrap;
+// }
+.search-form {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-end; /* aligns button with inputs */
+
+}
+
+.search-form .form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* inputs stretch */
+  min-width: 150px; /* keep readable */
+  // flex: 0 0 auto;
+}
+
+// .search-form .form-group :nth-child(1){
+//   text-align: left;
+// }
+// .search-form .form-group :nth-child(2){
+//   text-align: center;
+// }
+// .search-form .form-group :nth-child(3){
+//   text-align: right;
+// }
+
+
+// .search-form .form-group {
+//   display: flex;
+//   flex-direction: column;
+//   flex: 1;
+// }
+
+.search-form label {
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 5px;
+}
+
+.search-form .form-control {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+  transition: all 0.3s ease;
+  min-width: 180px;
+}
+
+.search-form .form-control:focus {
+  border: 1px solid #555;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  outline: none;
+}
+
+.btn-search {
+  white-space: nowrap;
+  flex: 0 0 auto;  /* <- prevents stretching */
+  background: #111;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  padding: 8px 20px;
+  margin-top: 23px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+
+
+// .btn-search {
+//   background: #111;
+//   color: #fff;
+//   font-weight: 600;
+//   border-radius: 10px;
+//   border: none;
+//   padding: 8px 15px;
+//   margin-top: 23px;
+//   cursor: pointer;
+//   transition: all 0.3s ease;
+// }
+
+.btn-search:hover {
+  background: #333;
+}
+
+.btn-search:disabled {
+  background: rgba(0,0,0,0.3);
+  cursor: not-allowed;
+}
+
+/* ===== Cars Grid ===== */
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ===== Individual Car Card ===== */
+.car-card {
+  background: rgba(255,255,255,0.9); /* glassy white */
+  border-radius: 15px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.car-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.car-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.car-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.status-message .badge {
+  padding: 5px 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+/* ===== Status Colors ===== */
+.status-message .available {
+  background: rgba(46,204,113,0.2);
+  color: #2ecc71;
+}
+
+.status-message .booked, 
+.status-message .unavailable {
+  background: rgba(231,76,60,0.2);
+  color: #e74c3c;
+}
+
+/* ===== Book Button ===== */
+.btn-book {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: #111;
+  transition: all 0.3s ease;
+}
+
+.btn-book:hover {
+  background: #333;
+}
+
+.btn-disabled {
+  background: rgba(0,0,0,0.3) !important;
+  cursor: not-allowed;
+  box-shadow: none !important;
+}
+
+/* ===== No Cars Message ===== */
+.no-cars-message {
+  text-align: center;
+  color: #e74c3c;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.no-cars-message i {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .car-info {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
