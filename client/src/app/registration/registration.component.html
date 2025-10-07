@@ -1,3 +1,110 @@
+<!-- 
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <span class="ride">CAR</span><span class="on">z</span><span class="ride">Y</span>
+    </div>
+    <div class="navbar-links">
+      <button class="login-button" (click)="navigateToHome()">Home</button>
+    </div>
+  </nav>
+  <div class="login-container animate__animated animate__fadeIn">
+    <div class="content-wrapper">
+      <div class="login-card">
+        <div class="card-header">
+          <i class="fas fa-user-circle"></i> Create Account
+        </div>
+        <div class="card-body">
+          <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" class="login-form">
+            <div class="form-group">
+              <label for="username">
+                <i class="fas fa-user"></i> Username
+              </label>
+              <input
+                id="username"
+                formControlName="username"
+                type="text"
+                class="form-control"
+                placeholder="Choose username"
+              />
+              <div class="error-message" *ngIf="itemForm.get('username')?.invalid && itemForm.get('username')?.touched">
+                <i class="fas fa-exclamation-circle"></i>
+                <span *ngIf="itemForm.get('username')?.errors?.['required']">Username is required</span>
+                <span *ngIf="itemForm.get('username')?.errors?.['minlength']">Username must be at least 3 characters</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">
+                <i class="fas fa-envelope"></i> Email
+              </label>
+              <input
+                id="email"
+                formControlName="email"
+                type="email"
+                class="form-control"
+                placeholder="Enter your email"
+              />
+              <div class="error-message" *ngIf="itemForm.get('email')?.invalid && itemForm.get('email')?.touched">
+                <i class="fas fa-exclamation-circle"></i>
+                <span *ngIf="itemForm.get('email')?.errors?.['required']">Email is required</span>
+                <span *ngIf="itemForm.get('email')?.errors?.['email']">Invalid email format</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">
+                <i class="fas fa-lock"></i> Password
+              </label>
+              <input
+                id="password"
+                formControlName="password"
+                type="password"
+                class="form-control"
+                placeholder="Create password"
+              />
+              <div class="error-message" *ngIf="itemForm.get('password')?.invalid && itemForm.get('password')?.touched">
+                <i class="fas fa-exclamation-circle"></i>
+                <span *ngIf="itemForm.get('password')?.errors?.['required']">Password is required</span>
+                <span *ngIf="itemForm.get('password')?.errors?.['pattern']">Password: 8+ chars, uppercase, lowercase, number, and special character</span>
+              </div>
+            </div>
+
+
+            
+            <div class="form-group">
+              <label for="role">
+                <i class="fas fa-user-tag"></i> Role
+              </label>
+              <select
+                id="role"
+                formControlName="role"
+                class="form-control"
+              >
+                <option value="">Select Role</option>
+                <option value="CUSTOMER">Customer</option>
+                <option value="ADMINISTRATOR">Administrator</option>
+                <option value="AGENT">Agent</option>
+              </select>
+              <div class="error-message" *ngIf="itemForm.get('role')?.invalid && itemForm.get('role')?.touched">
+                <i class="fas fa-exclamation-circle"></i> Role is required
+              </div>
+            </div>
+            <button type="submit" class="btn btn-login" [disabled]="itemForm.invalid">
+              <i class="fas fa-user-plus"></i> Register
+            </button>
+            <div class="register-link">
+              Already have an account? <a [routerLink]="['/login']" class="btn-register"> Login </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<footer class="footer">
+  <p>© 2025 CARzY Rentals. All rights reserved.</p>
+</footer> -->
+
+
 
 <body>
   <nav class="navbar">
@@ -95,8 +202,24 @@
         </div>
       </div>
     </div>
+    <!-- <div *ngIf="showSuccessPopup" class="success-popup animate__animated animate__fadeInDown">
+      <i class="fas fa-check-circle"></i>
+      <p>Registration Successful! Redirecting to Login...</p>
+    </div> -->
+    <!-- Success Popup Overlay -->
+    <!-- <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{errorMessage}}
+    </div> -->
+    <div *ngIf="showSuccessPopup" class="success-overlay">
+      <div class="success-popup animate__animated animate__fadeInDown">
+        <i class="fas fa-check-circle"></i>
+        <p>      Registration Successful !        <br>
+                 Redirecting to Login...</p>
+      </div>
+    </div>
   </div>
 </body>
 <footer class="footer">
   <p>© 2025 CARzY Rentals. All rights reserved.</p>
 </footer>
+ 

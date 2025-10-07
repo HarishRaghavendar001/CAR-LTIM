@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./homepage.component.scss']
 })
 
-export class HomepageComponent implements AfterViewInit, OnDestroy {
+export class HomepageComponent implements AfterViewInit, OnDestroy ,OnInit{
   @ViewChild('bgVideo') bgVideo!: ElementRef<HTMLVideoElement>;
   // Poster fallback if video can't load
   poster = 'assets/car-poster.jpg';
@@ -48,4 +48,27 @@ export class HomepageComponent implements AfterViewInit, OnDestroy {
   navigateToLogin() {
     this.router.navigate(['/login']);
   }
+
+
+ ngOnInit(): void {
+    // AOS.init({ duration: 800, once: true });
+  }
+
+  scrollTo(id: string) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      // fallback: top of page
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+  onContact(e: Event) {
+    e.preventDefault();
+    // handle contact form submission (call API or show toast)
+    alert('Thanks! message submitted (wire up actual backend in TS).');
+  }
+  
+  
+  
 }

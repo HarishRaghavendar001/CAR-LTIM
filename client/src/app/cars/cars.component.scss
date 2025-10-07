@@ -426,15 +426,21 @@
   gap: 18px;
 }
 .car-card {
-  background: var(--card-bg);
+  max-width: 300px;
+  // background: var(--card-bg);
+  // box-shadow: 0 4px 15px rgba(0, 255, 200, 0.2);
+  // transition: all 0.3s ease-in-out;
+  background-color: #111;
   border-radius: 15px;
   padding: 15px 16px;
-  box-shadow: var(--shadow-1);
+  box-shadow: 0 4px 15px rgba(0, 255, 200, 0.2);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .car-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-2);
+  // box-shadow: var(--shadow-2);
+  box-shadow: 0 4px 15px rgba(0, 255, 200, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .car-title {
   font-size: 1.25rem;
