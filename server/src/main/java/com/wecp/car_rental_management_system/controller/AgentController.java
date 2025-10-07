@@ -112,6 +112,17 @@ public class AgentController {
     public ResponseEntity<Car> updateCar(@PathVariable Long carId, @RequestBody Car updatedCar) {
         return new ResponseEntity<>(carService.updateCar(carId, updatedCar), HttpStatus.OK);
     }
+    @DeleteMapping("/api/agent/car/{carId}")
+        public ResponseEntity<String> deleteCar(@PathVariable Long carId) {
+            boolean deleted = carService.deleteCar(carId);
+            if (deleted) {
+                return ResponseEntity.ok("Car deleted successfully");
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Car not found");
+            }
+        }
+   
+
 
     @GetMapping("/api/agent/bookings")
     public ResponseEntity<List<Booking>> getAllBookings() {

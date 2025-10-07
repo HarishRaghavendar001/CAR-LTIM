@@ -1,59 +1,4 @@
-// import { Component, OnInit } from '@angular/core';
-// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { HttpService } from '../../services/http.service';
-// import { AuthService } from '../../services/auth.service';
- 
-// @Component({
-//   selector: 'app-category',
-//   templateUrl: './category.component.html',
-//   styleUrls: ['./category.component.scss']
-// })
-// export class CategoryComponent implements OnInit {
-//   itemForm: FormGroup;
-//   categories: any[] = [];
- 
-//   constructor(
-//     private fb: FormBuilder,
-//     private httpService: HttpService,
-//     private authService: AuthService
-//   ) {
-//     this.itemForm = this.fb.group({
-//       name: ['', Validators.required],
-//       description: ['', Validators.required],
-     
-//     });
-//   }
- 
-//   ngOnInit(): void {
-//     this.loadCategories();
-//   }
- 
-//   loadCategories(): void {
-//     this.httpService.getAllCategories().subscribe((data: any) => {
-//       this.categories = data;
-//     });
-//   }
- 
-//   onSubmit(): void {
-//     if (this.itemForm.valid) {
-//       const formData = this.itemForm.value;
-//       this.httpService.createCategory(formData).subscribe(response => {
-//         console.log('Category created:', response);
-//         this.loadCategories(); // Refresh list
-//       });
-//     }
-//   }
- 
-//   onUpdate(categoryId: number): void {
-//     if (this.itemForm.valid) {
-//       const formData = this.itemForm.value;
-//       this.httpService.updateCategory(formData, categoryId).subscribe(response => {
-//         console.log('Category updated:', response);
-//         this.loadCategories(); // Refresh list
-//       });
-//     }
-//   }
-// }
+
 
 
 import { Component, OnInit } from '@angular/core';
@@ -100,3 +45,99 @@ export class CategoryComponent implements OnInit {
   }
 }
 
+
+
+// import { Component, OnInit } from '@angular/core';
+// import {
+//   FormGroup,
+//   FormBuilder,
+//   Validators,
+//   AbstractControl,
+//   ValidationErrors,
+//   AsyncValidatorFn
+// } from '@angular/forms';
+// import { Router } from '@angular/router';
+// import { AuthService } from '../../services/auth.service';
+// import { Observable, of } from 'rxjs';
+// import { debounceTime, map } from 'rxjs/operators';
+ 
+// @Component({
+//   selector: 'app-category',
+//   templateUrl: './category.component.html',
+//   styleUrls: ['./category.component.scss']
+// })
+// export class CategoryComponent implements OnInit {
+//   itemForm: FormGroup;
+//   categories: any[] = [];
+ 
+//   constructor(
+//     private fb: FormBuilder,
+//     private router: Router,
+//     private authService: AuthService
+//   ) {
+//     this.itemForm = this.fb.group({
+//       name: [
+//         '',
+//         [Validators.required],
+//         // [this.uniqueNameValidator()] // ✅ Custom async validator
+//       ],
+//       description: ['', Validators.required],
+//       baseRate: [
+//         '',
+//         [
+//           Validators.required,
+//           Validators.min(0),
+//           Validators.pattern(/^\d+(\.\d{1,2})?$/)
+//         ]
+//       ]
+//     });
+//   }
+ 
+//   ngOnInit(): void {
+//     this.loadCategories();
+//   }
+ 
+//   /** ✅ Load categories from localStorage */
+//   loadCategories(): void {
+//     const stored = localStorage.getItem('categories');
+//     this.categories = stored ? JSON.parse(stored) : [];
+//   }
+ 
+//   /** ✅ Save categories to localStorage */
+//   saveCategories(): void {
+//     localStorage.setItem('categories', JSON.stringify(this.categories));
+//   }
+ 
+
+//   // uniqueNameValidator(): AsyncValidatorFn {
+//   //   return (control: AbstractControl): Observable<ValidationErrors | null> => {
+//   //     if (!control.value) return of(null);
+ 
+//   //     return of(control.value).pipe(
+//   //       debounceTime(300),
+//   //       map((name) => {
+//   //         const stored = localStorage.getItem('categories');
+//   //         const categories = stored ? JSON.parse(stored) : [];
+//   //         const exists = categories.some(
+//   //           (cat: any) => cat.name.toLowerCase() === name.toLowerCase()
+//   //         );
+//   //         return exists ? { nameTaken: true } : null;
+//   //       })
+//   //     );
+//   //   };
+//   // }
+ 
+  
+//   onSubmit(): void {
+//     if (this.itemForm.valid) {
+//       const newCategory = this.itemForm.value;
+//       this.categories.push(newCategory);
+//       this.saveCategories(); // save to localStorage
+ 
+//       console.log('✅ Category added:', newCategory);
+//       this.router.navigate(['/dashboard']);
+//     } else {
+//       console.log('❌ Invalid form');
+//     }
+//   }
+// }

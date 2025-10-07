@@ -701,7 +701,7 @@
     <!-- 🚘 Dashboard Content -->
     <div class="container py-4">
       <h2 class="dashboard-title text-center mb-4 text-white">
-        <i class="fas fa-car-alt"></i> Car Management
+         Car Management
       </h2>
 
       <div class="row g-4">
@@ -850,7 +850,7 @@
                     <button class="btn btn-warning btn-sm text-white" (click)="editCar(car)">
                       <i class="fas fa-pencil-alt"></i>
                     </button>
-                    <button class="btn btn-danger btn-sm">
+                    <button class="btn btn-danger btn-sm" (click)="deleteCar(car)">
                       <i class="fas fa-trash-alt"></i>
                     </button>
                   </div>
@@ -876,11 +876,11 @@
               <p><strong>Registration Number:</strong> {{ selectedCar.registrationNumber }}</p>
               <p><strong>Status:</strong> {{ selectedCar.status }}</p>
               <p><strong>Rental Rate Per Day:</strong> {{ selectedCar.rentalRatePerDay }}</p>
-              <p><strong>Category:</strong> {{ getCategoryName(selectedCar.category) }}</p>
+              <p><strong>Category:</strong> {{ getCategoryName(selectedCar.category.id) }}</p>
             </div>
-            <div class="modal-footer">
+            <!-- <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

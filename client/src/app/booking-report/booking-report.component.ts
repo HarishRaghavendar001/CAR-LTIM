@@ -13,6 +13,7 @@ import { HttpService } from '../../services/http.service';
 })
 export class BookingReportComponent implements OnInit {
   bookings: any[] = [];
+  selectedBooking:any=null;
  
   constructor(private httpService: HttpService, private datePipe: DatePipe) {}
 
@@ -33,4 +34,16 @@ export class BookingReportComponent implements OnInit {
       console.error('Error fetching booking report', error);
     });
   }
+
+  openBookingInfo(booking: any) {
+    this.selectedBooking = booking;
+    const modalEl = document.getElementById('bookingInfoModal');
+    if (modalEl) {
+      const modal = new (window as any).bootstrap.Modal(modalEl);
+      modal.show();
+    }
+  }
+
+  
+
 }

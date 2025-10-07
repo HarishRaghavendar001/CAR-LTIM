@@ -481,7 +481,19 @@ export class AddCarComponent implements OnInit {
     const cat = this.carCategories.find((c: any) => c.id === categoryId);
     return cat ? cat.name : '';
   }
-
+deleteCar(carId: number) {
+    if (confirm("Are you sure you want to delete this car?")) {
+      this.httpService.deleteCar(carId).subscribe({
+        next: () => {
+          this.showSuccessMessage("Car deleted successfully!");
+          this.getCars(); // Refresh the list
+        },
+        error: () => {
+          this.showErrorMessage("Error deleting car.");
+        }
+      });
+    }
+  }
 
 
 

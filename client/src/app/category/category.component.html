@@ -1,4 +1,4 @@
-
+<!-- 
 <body>
   <div class="container-fluid dashboard-container">
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -113,4 +113,469 @@
       </div>
     </div>
   </div>
+</body> -->
+
+
+
+
+<!-- 
+<body>
+  <div class="container-fluid dashboard-container">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <div class="navbar-brand">
+          <span class="ride">CAR</span><span class="on">z</span>
+          <span class="ride">Y</span>
+        </div>
+ 
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link custom-btn" [routerLink]="['/dashboard']">
+                <i class="fas fa-sign-in-alt"></i> Dashboard
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+ 
+    <div class="dashboard-content">
+      <h2 class="dashboard-title">
+        <i class="fas fa-plus-circle"></i> Add Category
+      </h2>
+ 
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card dashboard-card">
+            <div class="card-header">
+              <i class="fas fa-info-circle"></i> New Category Details
+            </div>
+            <div class="card-body">
+              <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+               
+                <div class="mb-3">
+                  <label for="name" class="form-label">
+                    <i class="fas fa-tag"></i> Name
+                  </label>
+                  <input
+                    id="name"
+                    formControlName="name"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter category name"
+                  />
+ 
+                  <div
+                    *ngIf="itemForm.get('name')?.touched && itemForm.get('name')?.hasError('required')"
+                    class="text-danger"
+                  >
+                    <i class="fas fa-exclamation-circle"></i> Name is required
+                  </div>
+ 
+                  <div *ngIf="itemForm.get('name')?.pending" class="text-info">
+                    <i class="fas fa-spinner fa-spin"></i> Checking name...
+                  </div>
+ 
+                  <div
+                    *ngIf="itemForm.get('name')?.hasError('nameTaken')"
+                    class="text-danger"
+                  >
+                    <i class="fas fa-exclamation-circle"></i> Category name
+                    already exists
+                  </div>
+                </div>
+ 
+               
+                <div class="mb-3">
+                  <label for="description" class="form-label">
+                    <i class="fas fa-align-left"></i> Description
+                  </label>
+                  <textarea
+                    id="description"
+                    formControlName="description"
+                    rows="4"
+                    class="form-control"
+                    placeholder="Enter category description"
+                  ></textarea>
+                  <div
+                    *ngIf="itemForm.get('description')?.invalid && itemForm.get('description')?.touched"
+                    class="text-danger"
+                  >
+                    <i class="fas fa-exclamation-circle"></i> Description is
+                    required
+                  </div>
+                </div>
+ 
+              
+                <div class="mb-3">
+                  <label for="baseRate" class="form-label">
+                    <i class="fas fa-dollar-sign"></i> Base Rate
+                  </label>
+                  <input
+                    id="baseRate"
+                    formControlName="baseRate"
+                    type="number"
+                    class="form-control"
+                    placeholder="Enter base rate"
+                  />
+                  <div
+                    *ngIf="itemForm.get('baseRate')?.invalid && itemForm.get('baseRate')?.touched"
+                    class="text-danger"
+                  >
+                    <div
+                      *ngIf="itemForm.get('baseRate')?.hasError('required')"
+                      class="text-danger"
+                    >
+                      <i class="fas fa-exclamation-circle"></i> Base Rate is
+                      required
+                    </div>
+                    <div
+                      *ngIf="itemForm.get('baseRate')?.hasError('min')"
+                      class="text-danger"
+                    >
+                      <i class="fas fa-exclamation-circle"></i> Invalid Base Rate
+                    </div>
+                    <div
+                      *ngIf="itemForm.get('baseRate')?.hasError('pattern')"
+                      class="text-danger"
+                    >
+                      <i class="fas fa-exclamation-circle"></i> Wrong Amount
+                    </div>
+                  </div>
+                </div>
+ 
+                <button
+                  type="submit"
+                  class="btn custom-btn"
+                  [disabled]="itemForm.invalid"
+                >
+                  <i class="fas fa-plus-circle"></i> Add Category
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body> -->
+<!-- ----------------------------------- -->
+<!-- 
+<body>
+  <div class="container-fluid dashboard-container">
+  
+    <nav class="navbar navbar-expand-lg navbar-dark" style=" background: rgba(20, 20, 40, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0, 255, 200, 0.2);
+    transition: all 0.3s ease-in-out;
+    position: sticky;
+    top: 2%;
+    z-index: 1000;">
+      <div class="container-fluid">
+        <div class="navbar-brand">
+          <span class="ride">CAR</span><span class="on">z</span> <span class="ride">Y</span>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link custom-btn" [routerLink]="['/dashboard']">
+                <i class="fas fa-sign-in-alt"></i> Dashboard
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  
+    <div class="dashboard-content d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+      <div class="col-md-6">
+        <div class="card dashboard-card shadow-sm">
+          <div class="card-header bg-primary text-white">
+            <i class="fas fa-info-circle"></i> New Category Details
+          </div>
+          <div class="card-body bg-white">
+            <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="name" class="form-label text-black">
+                  <i class="fas fa-tag"></i> Name
+                </label>
+                <input 
+                  id="name" 
+                  formControlName="name" 
+                  type="text" 
+                  class="form-control bg-white" 
+                  placeholder="Enter category name"
+                />
+                <div *ngIf="itemForm.get('name')?.invalid && itemForm.get('name')?.touched" class="text-danger">
+                  <i class="fas fa-exclamation-circle"></i> Name is required
+                </div>
+                <div
+                *ngIf="itemForm.get('name')?.hasError('nameTaken')"
+                class="text-danger"
+              >
+                <i class="fas fa-exclamation-circle"></i> Category name
+                already exists
+              </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="description" class="form-label text-black">
+                  <i class="fas fa-align-left"></i> Description
+                </label>
+                <textarea 
+                  id="description" 
+                  formControlName="description" 
+                  rows="4"
+                  class="form-control bg-white text-black"
+                  placeholder="Enter category description"
+                ></textarea>
+                <div *ngIf="itemForm.get('description')?.invalid && itemForm.get('description')?.touched" class="text-danger">
+                  <i class="fas fa-exclamation-circle"></i> Description is required
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="baseRate" class="form-label text-black">
+                  <i class="fas fa-dollar-sign"></i> Base Rate
+                </label>
+                <input 
+                  id="baseRate" 
+                  formControlName="baseRate" 
+                  type="number" 
+                  class="form-control bg-white"
+                  placeholder="Enter base rate"
+                />
+                <div *ngIf="itemForm.get('baseRate')?.invalid && itemForm.get('baseRate')?.touched" class="text-danger">
+                  <div *ngIf="itemForm.get('baseRate')?.hasError('required')" class="text-danger">
+                    <i class="fas fa-exclamation-circle"></i> Base Rate is required
+                  </div>
+                  <div *ngIf="itemForm.get('baseRate')?.hasError('min')" class="text-danger">
+                    <i class="fas fa-exclamation-circle"></i> Invalid Base Rate
+                  </div>
+                  <div *ngIf="itemForm.get('baseRate')?.hasError('pattern')" class="text-danger">
+                    <i class="fas fa-exclamation-circle"></i> Wrong Amount
+                  </div>
+                </div>
+              </div>
+
+              <button 
+                type="submit" 
+                class="btn btn-primary w-100"
+                [disabled]="itemForm.invalid"
+              >
+                <i class="fas fa-plus-circle"></i> Add Category
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    body {
+      background: radial-gradient(circle at top left, #0b0c17, #1c1f36, #0b0c17); min-height: 100vh;
+  color: #fff;
+    }
+
+    .dashboard-card {
+      border-radius: 12px;
+    }
+
+    .card-header {
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9;
+    }
+  </style>
+</body> -->
+
+
+
+<body>
+  <div class="container-fluid dashboard-container">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style=" 
+        background: rgba(20, 20, 40, 0.9);  
+        backdrop-filter: blur(10px);  
+        border-radius: 12px;   
+        box-shadow: 0 4px 15px rgba(0, 255, 200, 0.2);  
+        transition: all 0.3s ease-in-out;  
+        position: sticky;  
+        top: 2%;  
+        z-index: 1000;
+    ">
+      <div class="container-fluid">
+        <div class="navbar-brand">
+          <span class="ride">CAR</span><span class="on">z</span> <span class="ride">Y</span>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link custom-btn" [routerLink]="['/dashboard']">
+                <i class="fas fa-sign-in-alt"></i> Dashboard
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="dashboard-content d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+      <div class="col-md-6">
+        <div class="card dashboard-card shadow-sm">
+          <div class="card-header bg-primary text-white">
+            <i class="fas fa-info-circle"></i> New Category Details
+          </div>
+          <div class="card-body bg-white">
+            <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+
+              <!-- Name Field -->
+              <div class="mb-3">
+                <label for="name" class="form-label text-black">
+                  <i class="fas fa-tag"></i> Name
+                </label>
+                <input
+                  id="name"
+                  formControlName="name"
+                  type="text"
+                  class="form-control bg-white text-black"
+                  placeholder="Enter category name"
+                  [ngClass]="{
+                    'is-invalid': itemForm.get('name')?.invalid && itemForm.get('name')?.touched,
+                    'is-valid': itemForm.get('name')?.valid && itemForm.get('name')?.touched
+                  }"
+                />
+                <div *ngIf="itemForm.get('name')?.invalid && itemForm.get('name')?.touched" class="text-danger">
+                  <i class="fas fa-exclamation-circle"></i> Name is required
+                </div>
+                <!-- <div *ngIf="itemForm.get('name')?.hasError('nameTaken')" class="text-danger">
+                  <i class="fas fa-exclamation-circle"></i> Category name already exists
+                </div> -->
+              </div>
+
+              <!-- Description Field -->
+              <div class="mb-3">
+                <label for="description" class="form-label text-black">
+                  <i class="fas fa-align-left"></i> Description
+                </label>
+                <textarea
+                  id="description"
+                  formControlName="description"
+                  rows="4"
+                  class="form-control bg-white text-black"
+                  placeholder="Enter category description"
+                  [ngClass]="{
+                    'is-invalid': itemForm.get('description')?.invalid && itemForm.get('description')?.touched,
+                    'is-valid': itemForm.get('description')?.valid && itemForm.get('description')?.touched
+                  }"
+                ></textarea>
+                <div *ngIf="itemForm.get('description')?.invalid && itemForm.get('description')?.touched" class="text-danger">
+                  <i class="fas fa-exclamation-circle"></i> Description is required
+                </div>
+              </div>
+
+              <!-- Base Rate Field -->
+              <div class="mb-3">
+                <label for="baseRate" class="form-label text-black">
+                  <i class="fas fa-dollar-sign"></i> Base Rate
+                </label>
+                <input
+                  id="baseRate"
+                  formControlName="baseRate"
+                  type="number"
+                  class="form-control bg-white text-black"
+                  placeholder="Enter base rate"
+                  [ngClass]="{
+                    'is-invalid': itemForm.get('baseRate')?.invalid && itemForm.get('baseRate')?.touched,
+                    'is-valid': itemForm.get('baseRate')?.valid && itemForm.get('baseRate')?.touched
+                  }"
+                />
+                <div *ngIf="itemForm.get('baseRate')?.invalid && itemForm.get('baseRate')?.touched" class="text-danger">
+                  <div *ngIf="itemForm.get('baseRate')?.hasError('required')" class="text-danger">
+                    <i class="fas fa-exclamation-circle"></i> Base Rate is required
+                  </div>
+                  <div *ngIf="itemForm.get('baseRate')?.hasError('min')" class="text-danger">
+                    <i class="fas fa-exclamation-circle"></i> Invalid Base Rate
+                  </div>
+                  <div *ngIf="itemForm.get('baseRate')?.hasError('pattern')" class="text-danger">
+                    <i class="fas fa-exclamation-circle"></i> Wrong Amount
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="btn btn-primary w-100"
+                [disabled]="itemForm.invalid"
+              >
+                <i class="fas fa-plus-circle"></i> Add Category
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    body {
+      background: radial-gradient(circle at top left, #0b0c17, #1c1f36, #0b0c17);
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    .dashboard-card {
+      border-radius: 12px;
+    }
+
+    .card-header {
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9;
+    }
+
+    /* Real-time validation borders */
+    .is-invalid {
+      border-color: #dc3545 !important;
+      box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+    }
+
+    .is-valid {
+      border-color: #28a745 !important;
+      box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+    }
+  </style>
 </body>

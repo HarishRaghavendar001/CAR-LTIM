@@ -119,6 +119,10 @@ export class HttpService {
     return this.http.get<any>(`${this.serverName}/api/agent/car/${carId}`);
   }
   
+deleteCar(carId: number): Observable<any> {
+    return this.http.delete(`${this.serverName}/api/agent/car/${carId}`, { headers: this.getHeaders() });
+  }
+  
   
 
 }

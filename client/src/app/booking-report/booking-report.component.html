@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="payment-container">
   <div class="payment-card">
     <div class="card-header">
@@ -23,13 +23,7 @@
             <td>{{ booking.id }}</td>
             <td>{{ formatDate(booking.rentalStartDate) }}</td>
             <td>{{ formatDate(booking.rentalEndDate) }}</td>
-            <!-- <td>
-              <span>{{ booking.status }}</span>
-            </td>
-            <td>${{ booking.totalAmount }}</td>
-            <td>
-              <span>{{ booking.paymentStatus }}</span>
-            </td> -->
+       
 <td>
   <span [ngClass]="{'status-booked': booking.status==='booked', 'status-available': booking.status==='available'}">
     {{ booking.status }}
@@ -52,4 +46,90 @@
     </div>
   </div>
 </div>
-<!-- //todo: complete missing code. -->
+//todo: complete missing code. --><div class="payment-container">
+  <div class="payment-card animate-up">
+    <div class="card-header text-center">
+      <h2><i class="fas fa-chart-line"></i> Booking Report</h2>
+    </div>
+
+    <div class="card-body table-responsive">
+      <table class="table table-hover transparent-table">
+        <thead class="table-light">
+          <tr>
+            <th>ID#</th>
+            <th><i class="fas fa-calendar-plus"></i> Start Date</th>
+            <th><i class="fas fa-calendar-minus"></i> End Date</th>
+            <th><i class="fas fa-info-circle"></i> Status</th>
+            <th><i class="fas fa-dollar-sign"></i> Total Amount</th>
+            <th><i class="fas fa-money-check"></i> Payment Status</th>
+            <th><i class="fas fa-user"></i> User Name</th>
+            <th><i class="fas fa-car"></i> Car Name</th>
+            <th><i class="fas fa-eye"></i> Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of bookings">
+            <td>{{ booking.id }}</td>
+            <td>{{ formatDate(booking.rentalStartDate) }}</td>
+            <td>{{ formatDate(booking.rentalEndDate) }}</td>
+            <td>
+              <span [ngClass]="{
+                'status-booked': booking.status === 'Booked',
+                'status-available': booking.status === 'Available'
+              }">
+                {{ booking.status }}
+              </span>
+            </td>
+            <td>${{ booking.totalAmount }}</td>
+            <td>
+              <span [ngClass]="{
+                'payment-pending': booking.paymentStatus === 'Pending',
+                'payment-completed': booking.paymentStatus === 'Completed'
+              }">
+                {{ booking.paymentStatus }}
+              </span>
+            </td>
+            <td>{{ booking.user.username }}</td>
+            <td>{{ booking.car.make }} {{ booking.car.model }}</td>
+            <td>
+              <button class="btn btn-outline-info btn-sm" (click)="openBookingInfo(booking)">
+                <i class="fas fa-info-circle"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Booking Info Modal -->
+<div class="modal fade" id="bookingInfoModal" tabindex="-1" aria-labelledby="bookingInfoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="bookingInfoModalLabel">
+          Booking #{{ selectedBooking?.id }} Details
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-black">
+        <p><strong>Start Date:</strong> {{ formatDate(selectedBooking?.rentalStartDate) }}</p>
+        <p><strong>End Date:</strong> {{ formatDate(selectedBooking?.rentalEndDate) }}</p>
+        <p><strong>Status:</strong> {{ selectedBooking?.status }}</p>
+        <p><strong>Total Amount:</strong> ${{ selectedBooking?.totalAmount }}</p>
+        <p><strong>Payment Status:</strong> {{ selectedBooking?.paymentStatus }}</p>
+        <p><strong>User:</strong> {{ selectedBooking?.user?.username }}</p>
+        <p><strong>Car:</strong> {{ selectedBooking?.car?.make }} {{ selectedBooking?.car?.model }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>

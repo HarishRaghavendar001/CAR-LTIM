@@ -67,128 +67,192 @@
 //   border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Add a border to separate rows */
 // }
 /* ===== Booking Report Container ===== */
-.payment-container {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-// .payment-card {
-//   background: rgba(30, 30, 50, 0.9);
-//   border-radius: 15px;
-//   box-shadow: 0 4px 20px rgba(0, 255, 200, 0.2);
+// .payment-container {
+//   padding: 20px;
+//   display: flex;
+//   justify-content: center;
 //   width: 100%;
-//   max-width: 1200px;
+// }
+
+
+// .payment-card:hover {
+//   transform: translateY(-5px);
+//   box-shadow: 0 8px 25px rgba(0, 255, 200, 0.3);
+// }
+
+// .card-header h2 {
+//   font-size: 1.6rem;
+//   font-weight: 700;
+//   color: #fff;
+//   // text-shadow: 0px 0px 8px rgba(0, 255, 200, 0.7);
+//   display: flex;
+//   justify-content: center; /* center horizontally */
+//   align-items: center;
+//   gap: 8px;
+//   margin: 0;
+//   padding: 15px 20px;
+//   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+// }
+
+// /* ===== Table Styling ===== */
+// .transparent-table {
+//   width: 100%;
+//   border-collapse: collapse;
+//   margin-top: 15px;
+//   border-radius: 12px;
+//   overflow: hidden;
+//   color: #f0f0f0;
+// }
+
+// .transparent-table thead {
+//   background: linear-gradient(135deg, #0fffc0, #ff4ecd);
+//   color: #0b0c17;
+//   font-weight: 600;
+//   text-align: left;
+// }
+
+// .transparent-table th,
+// .transparent-table td {
+//   padding: 12px 15px;
+//   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+// }
+
+// .transparent-table tbody tr {
+//   background: rgba(30, 30, 50, 0.7);
 //   transition: all 0.3s ease-in-out;
 // }
 
-.payment-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 255, 200, 0.3);
-}
+// .transparent-table tbody tr:hover {
+//   background: rgba(0, 255, 200, 0.1);
+//   transform: scale(1.01);
+// }
 
-.card-header h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #fff;
-  // text-shadow: 0px 0px 8px rgba(0, 255, 200, 0.7);
+// /* ===== Status Badges ===== */
+// .transparent-table tbody tr td span {
+//   font-weight: 600;
+//   padding: 3px 8px;
+//   border-radius: 6px;
+//   display: inline-block;
+// }
+
+// /* Dynamic colors for statuses */
+// .transparent-table tbody tr td span.status-booked {
+//   background: rgba(255, 200, 0, 0.2);
+//   color: #ffc107; /* yellow */
+// }
+
+// .transparent-table tbody tr td span.status-available {
+//   background: rgba(0, 255, 100, 0.2);
+//   color: #2ecc71; /* green */
+// }
+
+// .transparent-table tbody tr td span.payment-pending {
+//   background: rgba(255, 200, 0, 0.2);
+//   color: #ffc107; /* yellow */
+// }
+
+// .transparent-table tbody tr td span.payment-completed {
+//   background: rgba(0, 255, 100, 0.2);
+//   color: #2ecc71; /* green */
+// }
+
+// /* ===== Responsive ===== */
+// @media (max-width: 992px) {
+//   .card-header h2 {
+//     font-size: 1.4rem;
+//   }
+
+//   .transparent-table th,
+//   .transparent-table td {
+//     font-size: 0.9rem;
+//     padding: 10px 12px;
+//   }
+// }
+
+// @media (max-width: 576px) {
+//   .card-header h2 {
+//     font-size: 1.2rem;
+//   }
+
+//   .transparent-table th,
+//   .transparent-table td {
+//     font-size: 0.8rem;
+//     padding: 8px 10px;
+//   }
+
+//   .payment-container {
+//     padding: 10px;
+//   }
+// }
+
+
+.payment-container {
+  padding: 30px;
   display: flex;
-  justify-content: center; /* center horizontally */
+  justify-content: center;
   align-items: center;
-  gap: 8px;
-  margin: 0;
-  padding: 15px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* ===== Table Styling ===== */
-.transparent-table {
+.payment-card {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-  border-radius: 12px;
+  max-width: 1200px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  color: #f0f0f0;
+  animation: slideUp 0.8s ease-out;
 }
 
-.transparent-table thead {
-  background: linear-gradient(135deg, #0fffc0, #ff4ecd);
-  color: #0b0c17;
-  font-weight: 600;
-  text-align: left;
+.card-header {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  padding: 15px;
+  color: white;
+  text-align: center;
 }
 
-.transparent-table th,
-.transparent-table td {
-  padding: 12px 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.table th,
+.table td {
+  vertical-align: middle;
+  text-align: center;
 }
 
-.transparent-table tbody tr {
-  background: rgba(30, 30, 50, 0.7);
-  transition: all 0.3s ease-in-out;
+.status-booked {
+  background-color: #28a745;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
 }
 
-.transparent-table tbody tr:hover {
-  background: rgba(0, 255, 200, 0.1);
-  transform: scale(1.01);
+.status-available {
+  background-color: #ffc107;
+  color: #212529;
+  padding: 5px 10px;
+  border-radius: 12px;
 }
 
-/* ===== Status Badges ===== */
-.transparent-table tbody tr td span {
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 6px;
-  display: inline-block;
+.payment-pending {
+  background-color: #dc3545;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
 }
 
-/* Dynamic colors for statuses */
-.transparent-table tbody tr td span.status-booked {
-  background: rgba(255, 200, 0, 0.2);
-  color: #ffc107; /* yellow */
+.payment-completed {
+  background-color: #17a2b8;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
 }
 
-.transparent-table tbody tr td span.status-available {
-  background: rgba(0, 255, 100, 0.2);
-  color: #2ecc71; /* green */
+.animate-up {
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideUp 0.8s ease-out forwards;
 }
 
-.transparent-table tbody tr td span.payment-pending {
-  background: rgba(255, 200, 0, 0.2);
-  color: #ffc107; /* yellow */
-}
-
-.transparent-table tbody tr td span.payment-completed {
-  background: rgba(0, 255, 100, 0.2);
-  color: #2ecc71; /* green */
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 992px) {
-  .card-header h2 {
-    font-size: 1.4rem;
-  }
-
-  .transparent-table th,
-  .transparent-table td {
-    font-size: 0.9rem;
-    padding: 10px 12px;
-  }
-}
-
-@media (max-width: 576px) {
-  .card-header h2 {
-    font-size: 1.2rem;
-  }
-
-  .transparent-table th,
-  .transparent-table td {
-    font-size: 0.8rem;
-    padding: 8px 10px;
-  }
-
-  .payment-container {
-    padding: 10px;
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

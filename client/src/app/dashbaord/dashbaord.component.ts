@@ -10,16 +10,16 @@ import { AuthService } from '../../services/auth.service';
 })
 export class DashbaordComponent implements OnInit {
   userRole: string = ''
-  // userName: string = ''
+  userName: string = ''
   animatedText:string[]=[]
  
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.userRole = localStorage.getItem('role') || '';
-    // this.userName = localStorage.getItem('username') || '';
+    this.userName = localStorage.getItem('username') || '';
 //  const text = `Welcome ${this.userName ? '\u00A0 ' + this.userName : ''}`;
- const text = `Welcome\u00A0${this.userRole}`;
+ const text = `Welcome\u00A0${this.userName}`;
   this.animatedText = text.split('');
     
   }

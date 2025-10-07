@@ -116,7 +116,7 @@ export class LoginComponent implements OnInit {
           this.authService.saveToken(response.token);
           this.authService.setRole(response.role);
           this.authService.saveUserId(response.userId);
-          // localStorage.setItem('username',username)
+          localStorage.setItem('username',username)
           console.log("token saved");
           this.router.navigate(['/dashboard']);
         },

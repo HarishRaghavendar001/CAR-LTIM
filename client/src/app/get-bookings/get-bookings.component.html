@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="dashboard-content">
   <h4 class="dashboard-title">
     <i class="fas fa-book"></i> Bookings Management
@@ -108,6 +108,102 @@
             </div>
 
             <button type="submit" class="btn custom-btn" [disabled]="!itemForm.valid">
+              <i class="fas fa-credit-card"></i> Process Payment
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="dashboard-content">
+  <h4 class="dashboard-title">
+    <i class="fas fa-book"></i> Bookings Management
+  </h4>
+
+  <div class="row justify-content-center">
+
+    <!-- Success/Error Alerts -->
+    <div class="col-12 mb-3">
+      <div *ngIf="showSuccessMessage" class="alert alert-success fade show">
+        <i class="fas fa-check-circle"></i> {{ successMessage }}
+      </div>
+      <div *ngIf="showError" class="alert alert-danger fade show">
+        <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
+      </div>
+    </div>
+
+    <!-- Booking Cards -->
+    <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let booking of bookings; let i = index">
+      <div class="card booking-card animate__animated animate__fadeInRight shadow-sm">
+        <div class="card-header bg-white">
+          <i class="fas fa-car"></i> {{ booking.car.make }} {{ booking.car.model }}
+        </div>
+        <div class="card-body">
+          <p><i class="fas fa-calendar-alt"></i> <strong>Start:</strong> {{ booking.rentalStartDate | date }}</p>
+          <p><i class="fas fa-calendar-alt"></i> <strong>End:</strong> {{ booking.rentalEndDate | date }}</p>
+          <p><i class="fas fa-money-bill-wave"></i> <strong>Amount:</strong> {{ booking.totalAmount | currency:'USD' }}</p>
+          <p>
+            <i class="fas fa-info-circle"></i> 
+            <strong>Status:</strong> 
+            <span [ngClass]="booking.status.toLowerCase()">{{ booking.status }}</span>
+          </p>
+          <p><i class="fas fa-user"></i> <strong>User:</strong> {{ booking.user.username }}</p>
+
+          <!-- Buttons -->
+          <div class="d-flex gap-2">
+            <button class="btn btn-success flex-fill" 
+                    [disabled]="booking.status !== 'Pending'"
+                    (click)="acceptBooking(booking.id,'Accepted')">
+              <i class="fas fa-check"></i> Accept
+            </button>
+
+            <button class="btn btn-primary flex-fill" 
+                    [disabled]="booking.status !== 'Accepted'" 
+                    (click)="openPaymentPopup(booking)">
+              <i class="fas fa-credit-card"></i> Payment
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Payment Popup Modal -->
+  <div class="modal fade" id="paymentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content shadow-lg animate__animated animate__fadeInDown">
+        <div class="modal-header ">
+          <h5 class="modal-title text-black"><i class="fas fa-credit-card"></i> Process Payment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="itemForm" (ngSubmit)="createPayment()">
+            <div class="mb-3">
+              <label class="form-label text-black"><i class="fas fa-money-bill-wave"></i> Amount</label>
+              <input type="number" formControlName="amount" class="form-control" readonly>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label text-black"><i class="fas fa-calendar-alt"></i> Payment Date</label>
+              <input type="date" formControlName="paymentDate" class="form-control">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label text-black"><i class="fas fa-credit-card"></i> Payment Method</label>
+              <select formControlName="paymentMethod" class="form-control">
+                <option value="">Select Payment Method</option>
+                <option value="credit-card">Credit Card</option>
+                <option value="debit-card">Debit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="cashOnDelivery">Cash On Delivery</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!itemForm.valid">
               <i class="fas fa-credit-card"></i> Process Payment
             </button>
           </form>
