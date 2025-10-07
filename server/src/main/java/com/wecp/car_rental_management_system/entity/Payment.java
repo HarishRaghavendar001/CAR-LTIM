@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.Date;
 
@@ -27,6 +28,7 @@ public class Payment {
     // @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "booking_id")
+    @JsonManagedReference
     private Booking booking;
 
     public Payment(Long id, Double amount, Date paymentDate, String paymentMethod, String paymentStatus,

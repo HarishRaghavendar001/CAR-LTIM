@@ -5,6 +5,7 @@ package com.wecp.car_rental_management_system.entity;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;
@@ -24,7 +25,8 @@ private Double totalAmount;
 private String paymentStatus;
 
  @OneToOne
-@JsonIgnore
+// @JsonIgnore
+@JsonBackReference
 private Payment payment;
 
 @ManyToOne

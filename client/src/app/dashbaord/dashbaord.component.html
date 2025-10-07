@@ -1,10 +1,5 @@
-<!-- <div class="row text-center">
-<h1 class="text-capitalize">Car Rental Management System
-</h1>
-</div> -->
-
 <body>
-<div class="container-fluid dashboard-container" 
+<div class="container-fluid dashboard-container"
 [ngClass]="{
   'admin-model':userRole === 'ADMINISTRATOR',
   'agent-model':userRole === 'AGENT',
@@ -14,14 +9,13 @@
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <div class="navbar-brand">
-        <i class="fas fa-car-alt me-2"></i>
         <span class="ride">CAR</span><span class="on">z</span><span class="ride">Y</span>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+ 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <ng-container *ngIf="userRole === 'ADMINISTRATOR'">
@@ -31,7 +25,7 @@
               </a>
             </li>
           </ng-container>
-
+ 
           <ng-container *ngIf="userRole === 'AGENT'">
             <li class="nav-item">
               <a class="nav-link custom-btn" [routerLink]="['/add-car']">
@@ -39,7 +33,13 @@
               </a>
             </li>
           </ng-container>
-
+ 
+          <li class="nav-item">
+            <a class="nav-link custom-btn" [routerLink]="['/update-profile']">
+              <i class="fas fa-user-edit"></i> Update Profile
+            </a>
+          </li>
+ 
           <li class="nav-item">
             <button class="btn custom-btn" (click)="logout()">
               <i class="fas fa-sign-out-alt"></i> Logout
@@ -49,10 +49,10 @@
       </div>
     </div>
   </nav>
-
+ 
   <div class="dashboard-content">
     <!-- <h1 class="dashboard-title">
-      <i [class]="getRoleIcon()"></i>Welcome {{ userRole }} 
+      <i [class]="getRoleIcon()"></i>Welcome {{ userRole }}
     </h1> -->
 <h1 class="dashboard-title animated-text">
   <i [class]="getRoleIcon()"></i>
@@ -60,10 +60,10 @@
     {{ char }}
   </span>
 </h1>
-
-
-
-    
+ 
+ 
+ 
+   
     <div class="row justify-content-center">
       <ng-container *ngIf="userRole === 'ADMINISTRATOR'">
         <div class="col-md-10 mb-4">
@@ -76,7 +76,7 @@
             </div>
           <!-- </div> -->
         </div>
-
+ 
         <div class="col-md-10">
           <div class="card dashboard-card">
             <!-- <div class="card-header">
@@ -88,7 +88,7 @@
           </div>
         </div>
       </ng-container>
-
+ 
       <ng-container *ngIf="userRole === 'AGENT'">
         <div class="col-md-10">
           <!-- <div class="card dashboard-card"> -->
@@ -98,7 +98,7 @@
           <!-- </div> -->
         </div>
       </ng-container>
-
+ 
       <ng-container *ngIf="userRole === 'CUSTOMER'">
         <div class="col-md-10">
           <!-- <div class="card dashboard-card"> -->

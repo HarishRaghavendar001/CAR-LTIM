@@ -17,6 +17,7 @@ import { DatePipe } from '@angular/common';
 import { GetBookingsComponent } from './get-bookings/get-bookings.component';
 import { BookingReportComponent } from './booking-report/booking-report.component';
 import { PaymentReportComponent } from './payment-report/payment-report.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 
@@ -32,7 +33,8 @@ import { PaymentReportComponent } from './payment-report/payment-report.componen
       CarsComponent,
       GetBookingsComponent,
       BookingReportComponent,
-      PaymentReportComponent
+      PaymentReportComponent,
+      UpdateProfileComponent
      
   ],
   imports: [

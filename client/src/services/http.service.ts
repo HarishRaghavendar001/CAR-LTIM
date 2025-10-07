@@ -122,6 +122,41 @@ export class HttpService {
 deleteCar(carId: number): Observable<any> {
     return this.http.delete(`${this.serverName}/api/agent/car/${carId}`, { headers: this.getHeaders() });
   }
+
+  
+  updateUserByRole(endpoint: string, userData: any, headers: HttpHeaders): Observable<any> {
+      return this.http.put(`${this.serverName}${endpoint}`, userData, { headers });
+    }
+   
+   
+    getUserById(userId: any): Observable<any> {
+      const role = localStorage.getItem('role')?.toLowerCase(); // 'admin', 'agent', 'customer'
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${this.authService.getToken()}`
+      });
+   
+      let endpoint = '';
+      switch (role) {
+        case 'administrator':
+          endpoint = `/api/admin/${userId}`;
+          break;
+        case 'agent':
+          endpoint = `/api/agent/${userId}`;
+          break;
+        case 'customer':
+          endpoint = `/api/customer/${userId}`;
+          break;
+        default:
+          throw new Error('Invalid role');
+      }
+   
+      return this.http.get(`${this.serverName}${endpoint}`, { headers });
+    }
+   
+   
+    changePassword(endpoint: string, data: any, headers: HttpHeaders): Observable<any> {
+      return this.http.put(`${this.serverName}${endpoint}`, data, { headers , responseType :'text'});
+    }
   
   
 

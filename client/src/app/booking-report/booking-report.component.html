@@ -1,52 +1,5 @@
-<!-- 
+
 <div class="payment-container">
-  <div class="payment-card">
-    <div class="card-header">
-      <h2><i class="fas fa-chart-line"></i> Booking Report</h2>
-    </div>
-    <div class="card-body">
-      <table class="transparent-table">
-        <thead>
-          <tr>
-            <th>ID#</th>
-            <th><i class="fas fa-calendar-plus"></i> Start Date</th>
-            <th><i class="fas fa-calendar-minus"></i> End Date</th>
-            <th><i class="fas fa-info-circle"></i> Status</th>
-            <th><i class="fas fa-dollar-sign"></i> Total Amount</th>
-            <th><i class="fas fa-money-check"></i> Payment Status</th>
-            <th><i class="fas fa-user"></i> User Name</th>
-            <th><i class="fas fa-car"></i> Car Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let booking of bookings">
-            <td>{{ booking.id }}</td>
-            <td>{{ formatDate(booking.rentalStartDate) }}</td>
-            <td>{{ formatDate(booking.rentalEndDate) }}</td>
-       
-<td>
-  <span [ngClass]="{'status-booked': booking.status==='booked', 'status-available': booking.status==='available'}">
-    {{ booking.status }}
-  </span>
-</td>
-<td>${{ booking.totalAmount }}</td>
-<td>
-  <span [ngClass]="{'payment-pending': booking.paymentStatus==='Pending', 'payment-completed': booking.paymentStatus==='Completed'}">
-    {{ booking.paymentStatus }}
-  </span>
-</td>
-
-
-            
-            <td>{{ booking.user.username }}</td>
-            <td>{{ booking.car.make }} {{ booking.car.model }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-//todo: complete missing code. --><div class="payment-container">
   <div class="payment-card animate-up">
     <div class="card-header text-center">
       <h2><i class="fas fa-chart-line"></i> Booking Report</h2>

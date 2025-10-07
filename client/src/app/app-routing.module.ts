@@ -14,10 +14,12 @@ import { GetBookingsComponent } from './get-bookings/get-bookings.component';
 import { BookingReportComponent } from './booking-report/booking-report.component';
 import { PaymentReportComponent } from './payment-report/payment-report.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 
 const routes: Routes = [
+  {path:'update-profile',component:UpdateProfileComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   // { path: '**', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent },

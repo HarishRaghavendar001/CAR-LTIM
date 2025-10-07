@@ -209,6 +209,7 @@ export class CarsComponent implements OnInit {
     // live filters (e.g., for search term/category if added)
     this.itemForm.valueChanges.pipe(debounceTime(150)).subscribe(() => {
       this.applyFilters();
+    
     });
  
     this.userId = this.authService.getUserId();

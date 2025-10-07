@@ -1,0 +1,67 @@
+<div class="container mt-5 update-profile-container">
+  <nav class="navbar navbar-expand-lg navbar-dark glass-nav bg-black mx-3 rounded-3 shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold d-flex align-items-center">
+          <i class="fas fa-car-alt me-2"></i>
+          <span class="ride">CAR</span><span class="on">z</span><span class="ride">Y</span>
+        </a>
+        <div class="d-flex ms-auto">
+          <a routerLink="/dashboard" class="btn btn-outline-info">
+            <i class="fas fa-tachometer-alt me-1"></i> Dashboard
+          </a>
+        </div>
+      </div>
+    </nav>
+  <h2 class="text-center mb-4">Update Profile</h2>
+ 
+  <form [formGroup]="updateForm" (ngSubmit)="onUpdate()" class="shadow-lg p-4 rounded bg-light">
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input type="text" formControlName="username" class="form-control" placeholder="Enter your username" />
+    </div>
+ 
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" formControlName="email" class="form-control" placeholder="Enter your email" />
+    </div>
+ 
+    <div class="mb-3">
+      <label class="form-label">Role</label>
+      <input type="text" formControlName="role" class="form-control" readonly />
+    </div>
+ 
+    <button type="submit" class="btn btn-primary w-100" [disabled]="updateForm.invalid">
+      Update Profile
+    </button>
+  </form>
+ 
+  <div class="text-center mt-3">
+    <button class="btn btn-warning" (click)="openPasswordModal()">Change Password</button>
+  </div>
+ 
+  <!-- Password Modal -->
+  <div class="modal" tabindex="-1" [class.show]="showPasswordModal" style="display: block;" *ngIf="showPasswordModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Change Password</h5>
+          <button type="button" class="btn-close" (click)="closePasswordModal()"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="passwordForm" (ngSubmit)="onChangePassword()">
+            <div class="mb-3">
+              <label class="form-label">Old Password</label>
+              <input type="password" formControlName="oldPassword" class="form-control" placeholder="Enter old password" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">New Password</label>
+              <input type="password" formControlName="newPassword" class="form-control" placeholder="Enter new password" />
+            </div>
+            <div *ngIf="passwordError" class="alert alert-danger mt-2">{{passwordError}}</div>
+            <button type="submit" class="btn btn-success w-100" [disabled]="passwordForm.invalid">Update Password</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

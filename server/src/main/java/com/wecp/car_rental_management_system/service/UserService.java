@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 @Service
@@ -56,4 +57,53 @@ public class UserService implements UserDetailsService {
                 Collections.singletonList(new SimpleGrantedAuthority(user.getRole()))
         );
     }
+
+public User updateUser(Long userId, User updatedUser) {
+        User existingUser = userRepository.findById(userId)
+                .orElseThrow(() -> new NoSuchElementException("User not found with ID: " + userId));
+   
+        // Update fields
+        existingUser.setUsername(updatedUser.getUsername());
+        existingUser.setEmail(updatedUser.getEmail());
+   
+        // Only update password if it's not null or empty
+        if (updatedUser.getPassword() != null && !updatedUser.getPassword().isEmpty()) {
+            existingUser.setPassword(passwordEncoder.encode(updatedUser.getPassword()));
+        }
+   
+        // Update role if needed
+        if (updatedUser.getRole() != null) {
+            existingUser.setRole(updatedUser.getRole());
+        }
+   
+        return userRepository.save(existingUser);
+    }
+ 
+
+ 
+ 
+     public String changePassword(Long id, Map<String, String> passwords) {
+            User user = userRepository.findById(id)
+                    .orElseThrow(() -> new IllegalArgumentException("User not found"));
+ 
+                    String oldPassword = passwords.get("oldPassword");
+                        String newPassword = passwords.get("newPassword");
+   
+            // Check if old password is correct
+            if (!passwordEncoder.matches(oldPassword, user.getPassword())) {
+                throw new IllegalArgumentException("Old password is incorrect");
+            }
+   
+            // Check if new password is same as old one
+            if (passwordEncoder.matches(newPassword, user.getPassword())) {
+                throw new IllegalArgumentException("New password cannot be same as old password");
+            }
+   
+            // Update password
+            user.setPassword(passwordEncoder.encode(newPassword));
+            userRepository.save(user);
+   
+            return "Password updated successfully";
+        }
+    
 }
