@@ -118,8 +118,17 @@
                       'is-valid': itemForm.get('rentalRatePerDay')?.valid && itemForm.get('rentalRatePerDay')?.touched,
                       'is-invalid': itemForm.get('rentalRatePerDay')?.invalid && itemForm.get('rentalRatePerDay')?.touched
                     }"/>
-                  <div *ngIf="itemForm.get('rentalRatePerDay')?.invalid && itemForm.get('rentalRatePerDay')?.touched" class="invalid-feedback">
+                  <!-- <div *ngIf="itemForm.get('rentalRatePerDay')?.invalid && itemForm.get('rentalRatePerDay')?.touched" class="invalid-feedback">
                     Rental rate is required
+                  </div> -->
+                  <div *ngIf="itemForm.get('rentalRatePerDay')?.hasError('required')" class="text-danger">
+                    <i class="fas fa-exclamation-circle"></i> Rental Rate is required
+                  </div>
+                  <div *ngIf="itemForm.get('rentalRatePerDay')?.hasError('min')" class="text-danger">
+                    <i class="fas fa-exclamation-circle"></i> Invalid Rental Rate
+                  </div>
+                  <div *ngIf="itemForm.get('rentalRatePerDay')?.hasError('pattern')" class="text-danger">
+                    <i class="fas fa-exclamation-circle"></i> Wrong Amount,Must be > 0
                   </div>
                 </div>
 

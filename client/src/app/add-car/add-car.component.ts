@@ -39,7 +39,7 @@ export class AddCarComponent implements OnInit {
       model: ['', Validators.required],
       manufactureYear: ['', [Validators.required, Validators.pattern(/^(19|20)\d{2}$/)]],
       status: ['', Validators.required],
-      rentalRatePerDay: [0, [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
+      rentalRatePerDay: [1, [Validators.required,,Validators.min(1), Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
       // registrationNumber: ['', [Validators.required, Validators.pattern(/^\d{2}BH\d{4}[A-Z]{2}$|^[A-Z]{2}\d{2}[A-Z]{2}\d{4}$/)]],
       registrationNumber: ['', [Validators.required, Validators.pattern(/^[A-Z]{2}\d{2}[A-Z]{2}\d{4}$/)]],
       category: [null, Validators.required]

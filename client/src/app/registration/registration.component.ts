@@ -21,14 +21,14 @@ export class RegistrationComponent {
   constructor(private fb: FormBuilder, private httpService: HttpService, private router: Router) {
       this.itemForm = this.fb.group({
         username: ['', [Validators.required, Validators.minLength(3)]],
-        email: ['', [Validators.required, Validators.email]],
+        email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
         password: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=[\\]{};:\'",.<>/?]).{8,}$')]],
         role: [null, Validators.required]
       });
     }
     showSuccessPopup=false;
  
- 
+//  Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
  
  
   onSubmit(): void {
