@@ -145,14 +145,14 @@ export class AddCarComponent implements OnInit {
   }
   showSuccessMessage(mssg: string) {
     this.showMessage=true;
-    this.responseMessage=mssg
+    alert(this.responseMessage=mssg)
     setTimeout(() => {
       this.showMessage=false
     }, 3000);
   }
   showErrorMessage(mssg: string) {
    this.showError=true;
-   this.errorMessage=mssg;
+   this.errorMessage=mssg
    setTimeout(()=>this.showError=false,3000)
   }
  

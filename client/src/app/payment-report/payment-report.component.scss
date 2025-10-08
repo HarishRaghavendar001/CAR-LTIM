@@ -17,7 +17,11 @@
 
 .payment-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  // box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #0fffc0, #ff4ecd);
+  color: #0b0c17 !important;
+  box-shadow: 0 4px 12px rgba(0, 255, 200, 0.4);
+  transform: translateY(-2px);
 }
 
 .status-badge {

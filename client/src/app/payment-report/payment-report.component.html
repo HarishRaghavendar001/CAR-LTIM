@@ -31,12 +31,12 @@
 
           <hr />
 
-          <p><strong>Amount:</strong> ${{ val.amount }}</p>
+          <p><strong>Amount:</strong> {{ val.amount }}</p>
           <p>
             <strong>Payment Date:</strong>
             {{ val.paymentDate | date: 'dd-MMM-yyyy HH:mm:ss' }}
           </p>
-          <p><strong>Payment Method:</strong> {{ val.paymentMethod }}</p>
+          <p><strong>Payment Method: </strong><i class="fas fa-rupee-sign"></i>. {{ val.paymentMethod }}</p>
 
           <div class="booking-info mt-3">
             <h6><i class="fas fa-book"></i> Booking Details</h6>

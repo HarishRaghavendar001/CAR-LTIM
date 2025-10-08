@@ -34,7 +34,7 @@ export class CategoryComponent implements OnInit {
     if (this.itemForm.valid) {
       this.httpService.createCategory(this.itemForm.value).subscribe(
         response => {
-          console.log('Category added successfully', response);
+          alert('Category added successfully');
           this.router.navigate(['/dashboard']);
         },
         error => {

@@ -70,7 +70,7 @@
         <p><strong>Start Date:</strong> {{ formatDate(selectedBooking?.rentalStartDate) }}</p>
         <p><strong>End Date:</strong> {{ formatDate(selectedBooking?.rentalEndDate) }}</p>
         <p><strong>Status:</strong> {{ selectedBooking?.status }}</p>
-        <p><strong>Total Amount:</strong> ${{ selectedBooking?.totalAmount }}</p>
+        <p><strong>Total Amount:</strong> <i class="fas fa-rupee-sign"></i>{{ selectedBooking?.totalAmount }}</p>
         <p><strong>Payment Status:</strong> {{ selectedBooking?.paymentStatus }}</p>
         <p><strong>User:</strong> {{ selectedBooking?.user?.username }}</p>
         <p><strong>Car:</strong> {{ selectedBooking?.car?.make }} {{ selectedBooking?.car?.model }}</p>

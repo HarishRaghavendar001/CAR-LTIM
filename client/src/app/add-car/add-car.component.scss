@@ -44,7 +44,10 @@ transition: transform 0.4s ease, box-shadow 0.3s ease;
 
 .car-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 255, 200, 0.3);
+  background: linear-gradient(135deg, #0fffc0, #ff4ecd);
+  color: #0b0c17 !important;
+  box-shadow: 0 4px 12px rgba(0, 255, 200, 0.4);
+  transform: translateY(-2px);
  }
 
 .animate-up {
