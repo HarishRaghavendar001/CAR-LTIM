@@ -1,0 +1,41 @@
+body {
+  background: linear-gradient(135deg, #001f3f, #003366, #001a33);
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+.glass-nav {
+  position: sticky;
+  top:0;
+  background: rgba(15, 25, 45, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ride {
+  color: #00e6ff;
+}
+.on {
+  color:violet;
+  font-weight: bold;
+}
+.card {
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+.btn-primary {
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  border: none;
+}
+.btn-primary:hover {
+  background: linear-gradient(90deg, #0062cc, #00aaff);
+}
+.modal-content {
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .update-profile-page {
+    padding: 20px;
+  }
+}
